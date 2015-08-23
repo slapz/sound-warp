@@ -16,6 +16,8 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SoundWarp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="EiT-Mj-1SZ" id="UCK-dl-Dyr"/>
+                <outlet property="historyNavigation" destination="r1S-GZ-sTG" id="5BT-GZ-JIh"/>
+                <outlet property="search" destination="sgZ-AA-tAM" id="lkW-dc-tvh"/>
                 <outlet property="webview" destination="hka-QU-SdS" id="nqH-SU-TZE"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="xDy-0O-mKN"/>
             </connections>
@@ -286,23 +288,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Develop" id="T5L-5i-9gG">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Develop" id="uvy-z4-ZSF">
-                        <items>
-                            <menuItem title="Show Web Inspector" id="AIc-ea-q3o">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Show Error Console" id="UWd-Yc-lDb" userLabel="Show Error Console">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="4m8-aX-axk"/>
-                            <menuItem title="Developers Forum" id="Km6-wa-pS9" userLabel="Show Error Console">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
                 <menuItem title="Window" id="aUF-d1-5bR">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
@@ -373,7 +358,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="640" height="353"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ" customClass="NSVisualEffectView">
                 <rect key="frame" x="0.0" y="0.0" width="640" height="353"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -385,7 +370,7 @@
                         <nil key="toolTip"/>
                         <size key="minSize" width="0.0" height="22"/>
                         <size key="maxSize" width="104" height="26"/>
-                        <segmentedControl key="view" verticalHuggingPriority="750" misplaced="YES" id="r1S-GZ-sTG">
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="r1S-GZ-sTG">
                             <rect key="frame" x="0.0" y="14" width="58" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <animations/>
@@ -399,6 +384,9 @@
                                         <nil key="label"/>
                                     </segment>
                                 </segments>
+                                <connections>
+                                    <action selector="processHistoryNavigation:" target="Voe-Tx-rLC" id="8W8-wV-Ucx"/>
+                                </connections>
                             </segmentedCell>
                         </segmentedControl>
                     </toolbarItem>
@@ -426,7 +414,7 @@
                     <toolbarItem reference="0G1-mX-fJP"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="399" y="1091.5"/>
+            <point key="canvasLocation" x="481" y="799.5"/>
         </window>
         <webView id="hka-QU-SdS">
             <rect key="frame" x="0.0" y="0.0" width="513" height="277"/>

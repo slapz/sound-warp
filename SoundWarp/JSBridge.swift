@@ -18,7 +18,10 @@ protocol JSBridgeProtocol {
   func getWebView() -> WebView
 
 	func getRootScope() -> WebScriptObject
-  func export(key: NSString, value: AnyObject) -> Self
+  func export(key: String, value: AnyObject) -> Self
+  func export(dict: NSDictionary) -> Self
+  func exec(script: String) -> AnyObject
+  func execWebScript(script: WebScriptObject) -> AnyObject
 }
 
 class JSBridge: NSObject, JSBridgeProtocol {
@@ -54,14 +57,19 @@ class JSBridge: NSObject, JSBridgeProtocol {
     return self;
   }
   
-  func export(key: NSString, value: AnyObject) -> Self
+  func export(key: String, value: AnyObject) -> Self
   {
-    self.getRootScope().setValue(value, forKey: key as String);
+    self.getRootScope().setValue(value, forKey: key);
     return self;
   }
   
-  func exec(script: NSString) -> AnyObject
+  func exec(script: String) -> AnyObject
   {
-    return self.getRootScope().evaluateWebScript(script as String);
+    return self.getRootScope().evaluateWebScript(script);
+  }
+  
+  func execWebScript(script: WebScriptObject) -> AnyObject
+  {
+    return self.getRootScope().evaluateWebScript(script.stringRepresentation());
   }
 }

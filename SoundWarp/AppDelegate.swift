@@ -14,25 +14,29 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   @IBOutlet weak var window: NSWindow!
-  @IBOutlet weak var contentView: NSVisualEffectView!
+  @IBOutlet weak var contentView: NSView!
   @IBOutlet weak var webview: WebView!
+  
+  @IBOutlet weak var historyNavigation: NSSegmentedControl!
+  @IBOutlet weak var search: NSSearchFieldCell!
+  
+  var jsBridge: JSBridge!
+  var jsBridgeExports: JSBridgeExports!
   
   override func awakeFromNib() {
 	  self.window.titleVisibility = NSWindowTitleVisibility.Hidden;
   	self.window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
   }
   
-  func applicationDidFinishLaunching(aNotification: NSNotification) { 
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey:"WebKitDeveloperExtras");
-    NSUserDefaults.standardUserDefaults().synchronize();
-    
-    self.window.contentView = initWebView(self.webview);
+  func applicationDidFinishLaunching(aNotification: NSNotification) {
+    initApp(self);
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {
     // Insert code here to tear down your application
   }
 
-
+  @IBAction func processHistoryNavigation(sender: AnyObject) {
+    self.jsBridgeExports.emit("history-forward");
+  }
 }
-
