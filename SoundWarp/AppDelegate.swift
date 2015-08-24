@@ -13,12 +13,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-  @IBOutlet weak var window: NSWindow!
-  @IBOutlet weak var contentView: NSView!
-  @IBOutlet weak var webview: WebView!
+  @IBOutlet var window: NSWindow!
+  @IBOutlet var contentView: NSView!
+  @IBOutlet var webview: WebView!
   
-  @IBOutlet weak var historyNavigation: NSSegmentedControl!
-  @IBOutlet weak var search: NSSearchFieldCell!
+  @IBOutlet var historyNavigation: NSSegmentedControl!
+  @IBOutlet var search: NSSearchFieldCell!
   
   var jsBridge: JSBridge!
   var jsBridgeExports: JSBridgeExports!
@@ -37,6 +37,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   @IBAction func processHistoryNavigation(sender: AnyObject) {
-    self.jsBridgeExports.emit("history-forward");
+    if (sender.isSelectedForSegment(0)) {
+      do {
+        try self.jsBridgeExports.emit("history-back");
+      } catch JSBridgeError.NoEventHandler {
+        debugPrint("No Event Handler for `history-back` event!");
+      } catch {
+        debugPrint("Error occured!")
+      }
+    }
+    if (sender.isSelectedForSegment(1)) {
+    	do {
+      	try self.jsBridgeExports.emit("history-forward");
+    	} catch JSBridgeError.NoEventHandler {
+        debugPrint("No Event Handler for `history-forward` event!");
+      } catch {
+        debugPrint("Error occured!")
+      }
+    }
+  }
+
+  @IBAction func processSearch(sender: AnyObject) {
+    let data = NSMutableDictionary();
+    data.setValue(sender.value, forKey: "keyword");
+    
+    do {
+      try self.jsBridgeExports.emit("search-keypress", data: data);
+    } catch JSBridgeError.NoEventHandler {
+      debugPrint("No Event Handler for `search-keypress` event!");
+    } catch {
+      debugPrint("Error occured!")
+    }
   }
 }

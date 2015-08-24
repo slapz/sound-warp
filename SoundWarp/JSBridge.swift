@@ -20,8 +20,7 @@ protocol JSBridgeProtocol {
 	func getRootScope() -> WebScriptObject
   func export(key: String, value: AnyObject) -> Self
   func export(dict: NSDictionary) -> Self
-  func exec(script: String) -> AnyObject
-  func execWebScript(script: WebScriptObject) -> AnyObject
+  func exec(script: WebScriptObject, event: String) -> String
 }
 
 class JSBridge: NSObject, JSBridgeProtocol {
@@ -63,13 +62,29 @@ class JSBridge: NSObject, JSBridgeProtocol {
     return self;
   }
   
-  func exec(script: String) -> AnyObject
+  func createJSEvent(data: NSMutableDictionary) -> String
   {
-    return self.getRootScope().evaluateWebScript(script);
+    var params: String = "";
+    
+    if (data.count > 0) {
+      
+      do {
+        
+        
+        
+      } catch {}
+      
+    } else {
+      params = "{}"; // Empty JS object
+    }
+    
+    let event = "var event = new Event('BridgeEvent', { 'data': " + params + " });";
+    return "(function(){" + event + "; return event; })()";
   }
   
-  func execWebScript(script: WebScriptObject) -> AnyObject
+  func exec(script: WebScriptObject, event: String) -> String
   {
-    return self.getRootScope().evaluateWebScript(script.stringRepresentation());
+    let closure = "(" + script.JSValue().toString() + ")(" + event + ");";
+    return self.webview.stringByEvaluatingJavaScriptFromString(closure);
   }
 }

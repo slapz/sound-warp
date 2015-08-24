@@ -9,18 +9,22 @@
 import Foundation
 import WebKit
 
+enum JSBridgeError: ErrorType {
+  case NoEventHandler
+}
+
 class JSBridgeExports : NSObject {
   
   var jsBridge: JSBridge!
-  var events: NSMutableDictionary!
+  var events: Dictionary<String, WebScriptObject>!
   
   init(jsBridge: JSBridge)
   {
     self.jsBridge = jsBridge;
-    self.events = NSMutableDictionary();
+    self.events = Dictionary();
   }
   
-  func on(eventName: String, callback: AnyObject) -> Bool
+  func on(eventName: String, callback: WebScriptObject) -> Bool
   {
     self.events[eventName] = callback;
     return true;
@@ -32,9 +36,20 @@ class JSBridgeExports : NSObject {
     return true;
   }
   
-  func emit(eventName: String) -> AnyObject
+  func emit(eventName: NSString, data: NSMutableDictionary) throws -> AnyObject
   {
-		return self.jsBridge.execWebScript(self.events[eventName] as! WebScriptObject);
+    if (self.events[eventName as String] != nil) {
+      let callback: WebScriptObject = self.events[eventName as String]!;
+      let event = self.jsBridge.createJSEvent(data);
+      return self.jsBridge.exec(callback, event: event);
+    }
+    throw JSBridgeError.NoEventHandler;
+  }
+  
+  func emit(eventName: NSString) throws -> AnyObject
+  {
+    let data = NSMutableDictionary();
+    return try self.emit(eventName, data: data);
   }
   
   override class func webScriptNameForSelector(aSelector: Selector) -> String!  {

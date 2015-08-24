@@ -30,7 +30,9 @@ func initJSBridge(app: AppDelegate)
 {
   app.jsBridge = JSBridge(view: app.webview);
   app.jsBridgeExports = JSBridgeExports(jsBridge: app.jsBridge);
-  
+
+  //app.jsBridgeExports.on("history-forward", callback: "document.write('History forward!');");
+
   /* Export bridge as global JS object */
   app.jsBridge.export("bridge", value: app.jsBridgeExports);
 }
