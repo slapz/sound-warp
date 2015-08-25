@@ -12,6 +12,9 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+  
+  let SEGMENTED_CONTROL_BACK: Int = 0;
+  let SEGMENTED_CONTROL_FORWARD: Int = 1;
 
   @IBOutlet var window: NSWindow!
   @IBOutlet var contentView: NSView!
@@ -25,48 +28,59 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   override func awakeFromNib() {
 	  self.window.titleVisibility = NSWindowTitleVisibility.Hidden;
-  	self.window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
+    self.window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
+    self.window.movableByWindowBackground = true;
+    
+    self.window.makeKeyAndOrderFront(self.window);
   }
   
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     initApp(self);
+
+    self.search.sendsWholeSearchString = true;
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {
     // Insert code here to tear down your application
   }
-
-  @IBAction func processHistoryNavigation(sender: AnyObject) {
-    if (sender.isSelectedForSegment(0)) {
-      do {
-        try self.jsBridgeExports.emit("history-back");
-      } catch JSBridgeError.NoEventHandler {
-        debugPrint("No Event Handler for `history-back` event!");
-      } catch {
-        debugPrint("Error occured!")
+  
+  func callJSBridgeEvent(eventName: String)
+  {
+    do {
+      if (self.jsBridge != nil && self.jsBridgeExports != nil) {
+        try self.jsBridgeExports.emit(eventName);
       }
+    } catch JSBridgeError.NoEventHandler {
+      debugPrint("JSBridge: No event handler for '" + eventName + "' event!");
+    } catch {
+      debugPrint("JSBridge: error occured!");
     }
-    if (sender.isSelectedForSegment(1)) {
-    	do {
-      	try self.jsBridgeExports.emit("history-forward");
-    	} catch JSBridgeError.NoEventHandler {
-        debugPrint("No Event Handler for `history-forward` event!");
-      } catch {
-        debugPrint("Error occured!")
+  }
+
+  func callJSBridgeEvent(eventName: String, data: NSDictionary)
+  {
+    do {
+      if (self.jsBridge != nil && self.jsBridgeExports != nil) {
+	      try self.jsBridgeExports.emit(eventName, data: data);
       }
+    } catch JSBridgeError.NoEventHandler {
+      debugPrint("JSBridge: No event handler for '" + eventName + "' event!");
+    } catch {
+      debugPrint("JSBridge: error occured!");
+    }
+  }
+  
+  @IBAction func processHistoryNavigation(sender: AnyObject) {
+    if (self.historyNavigation.isSelectedForSegment(self.SEGMENTED_CONTROL_BACK)) {
+      self.callJSBridgeEvent("history-back");
+    }
+    if (self.historyNavigation.isSelectedForSegment(self.SEGMENTED_CONTROL_FORWARD)) {
+      self.callJSBridgeEvent("history-forward");
     }
   }
 
   @IBAction func processSearch(sender: AnyObject) {
-    let data = NSMutableDictionary();
-    data.setValue(sender.value, forKey: "keyword");
-    
-    do {
-      try self.jsBridgeExports.emit("search-keypress", data: data);
-    } catch JSBridgeError.NoEventHandler {
-      debugPrint("No Event Handler for `search-keypress` event!");
-    } catch {
-      debugPrint("Error occured!")
-    }
+    let data = NSDictionary(objects: [self.search.stringValue], forKeys: ["keyword"]);
+    self.callJSBridgeEvent("search-input", data: data);
   }
 }

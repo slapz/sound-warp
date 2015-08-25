@@ -23,15 +23,14 @@ func initApp(app: AppDelegate)
   setWebViewContent(app.webview, content: content as String);
   
   /* Set webview as window's content view */
+  app.webview.drawsBackground = false;
   app.window.contentView = app.webview;
 }
 
 func initJSBridge(app: AppDelegate)
 {
   app.jsBridge = JSBridge(view: app.webview);
-  app.jsBridgeExports = JSBridgeExports(jsBridge: app.jsBridge);
-
-  //app.jsBridgeExports.on("history-forward", callback: "document.write('History forward!');");
+  app.jsBridgeExports = JSBridgeExports(jsBridge: app.jsBridge, app: app);
 
   /* Export bridge as global JS object */
   app.jsBridge.export("bridge", value: app.jsBridgeExports);

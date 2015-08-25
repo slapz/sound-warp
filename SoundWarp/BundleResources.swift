@@ -16,6 +16,11 @@ func getResourcePath(name: String, type: String) -> String
   return MAIN_BUNDLE.pathForResource(name, ofType: type)!;
 }
 
+func getResourcePath(dirname: String, name: String, type: String) -> String
+{
+  return MAIN_BUNDLE.pathForResource(name, ofType: type, inDirectory: dirname)!;
+}
+
 func readHTMLToString(path: String, encoding: UInt) -> NSString
 {
   var str: NSString! = nil;

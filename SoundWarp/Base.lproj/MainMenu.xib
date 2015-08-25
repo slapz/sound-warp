@@ -354,24 +354,24 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="SoundWarp" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Default Title" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="640" height="353"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1080"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ" customClass="NSVisualEffectView">
                 <rect key="frame" x="0.0" y="0.0" width="640" height="353"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <animations/>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="860FD2E6-76E4-46B9-B6B7-585C2FBBADF0" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="vBJ-cZ-aDG">
+            <toolbar key="toolbar" implicitIdentifier="860FD2E6-76E4-46B9-B6B7-585C2FBBADF0" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="vBJ-cZ-aDG">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="CCA706B8-3FB1-4B02-BE95-99472FED2494" label="" paletteLabel="" id="Er4-w7-nNu">
+                    <toolbarItem implicitItemIdentifier="CCA706B8-3FB1-4B02-BE95-99472FED2494" label="History" paletteLabel="History" id="Er4-w7-nNu">
                         <nil key="toolTip"/>
                         <size key="minSize" width="0.0" height="22"/>
                         <size key="maxSize" width="104" height="26"/>
                         <segmentedControl key="view" verticalHuggingPriority="750" id="r1S-GZ-sTG">
-                            <rect key="frame" x="0.0" y="14" width="58" height="25"/>
+                            <rect key="frame" x="0.0" y="14" width="58" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <animations/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="nrv-A8-hQo">
@@ -380,7 +380,7 @@
                                     <segment image="NSGoLeftTemplate">
                                         <nil key="label"/>
                                     </segment>
-                                    <segment image="NSGoRightTemplate" tag="1">
+                                    <segment toolTip="Show the next page" image="NSGoRightTemplate" tag="1">
                                         <nil key="label"/>
                                     </segment>
                                 </segments>
@@ -419,7 +419,7 @@
             </toolbar>
             <point key="canvasLocation" x="508" y="894.5"/>
         </window>
-        <webView id="hka-QU-SdS">
+        <webView canDrawConcurrently="YES" focusRingType="none" maintainsBackForwardList="NO" id="hka-QU-SdS">
             <rect key="frame" x="0.0" y="0.0" width="513" height="277"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <animations/>

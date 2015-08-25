@@ -62,23 +62,13 @@ class JSBridge: NSObject, JSBridgeProtocol {
     return self;
   }
   
-  func createJSEvent(data: NSMutableDictionary) -> String
+  func createJSEvent(data: NSDictionary) -> String
   {
-    var params: String = "";
-    
-    if (data.count > 0) {
-      
-      do {
-        
-        
-        
-      } catch {}
-      
-    } else {
-      params = "{}"; // Empty JS object
+    var params: String = convertDictToJSON(data);
+    if (params.isEmpty) {
+      params = "{}";
     }
-    
-    let event = "var event = new Event('BridgeEvent', { 'data': " + params + " });";
+    let event = "var event = new Event('BridgeEvent'); event.data = " + params + ";";
     return "(function(){" + event + "; return event; })()";
   }
   

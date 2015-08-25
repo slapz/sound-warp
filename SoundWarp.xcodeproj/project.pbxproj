@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		712E1A0F1B8A1203008CF2ED /* BundleResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712E1A0E1B8A1203008CF2ED /* BundleResources.swift */; };
 		712E1A111B8A1FBC008CF2ED /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712E1A101B8A1FBC008CF2ED /* WebView.swift */; };
-		714D37C21B8B658A00D6CAFC /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D37C11B8B658A00D6CAFC /* JSON.swift */; };
-		71654F841B88D5860080B2C7 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 71654F831B88D5860080B2C7 /* index.html */; };
+		714D37C21B8B658A00D6CAFC /* NSDictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D37C11B8B658A00D6CAFC /* NSDictionaryHelper.swift */; };
+		717EE8731B8C90EF008A6B18 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 717EE86D1B8C8D35008A6B18 /* index.html */; };
 		718E477A1B88A00B00540B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E47791B88A00B00540B81 /* AppDelegate.swift */; };
 		718E477C1B88A00C00540B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718E477B1B88A00C00540B81 /* Assets.xcassets */; };
 		718E477F1B88A00C00540B81 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 718E477D1B88A00C00540B81 /* MainMenu.xib */; };
@@ -22,8 +22,8 @@
 /* Begin PBXFileReference section */
 		712E1A0E1B8A1203008CF2ED /* BundleResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleResources.swift; sourceTree = "<group>"; };
 		712E1A101B8A1FBC008CF2ED /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		714D37C11B8B658A00D6CAFC /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		71654F831B88D5860080B2C7 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		714D37C11B8B658A00D6CAFC /* NSDictionaryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryHelper.swift; sourceTree = "<group>"; };
+		717EE86D1B8C8D35008A6B18 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		718E47761B88A00B00540B81 /* SoundWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		718E47791B88A00B00540B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718E477B1B88A00C00540B81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,18 +49,18 @@
 			isa = PBXGroup;
 			children = (
 				712E1A0E1B8A1203008CF2ED /* BundleResources.swift */,
-				714D37C11B8B658A00D6CAFC /* JSON.swift */,
+				714D37C11B8B658A00D6CAFC /* NSDictionaryHelper.swift */,
 				712E1A101B8A1FBC008CF2ED /* WebView.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		71654F851B88D58C0080B2C7 /* App */ = {
+		717EE86C1B8C8D35008A6B18 /* www */ = {
 			isa = PBXGroup;
 			children = (
-				71654F831B88D5860080B2C7 /* index.html */,
+				717EE86D1B8C8D35008A6B18 /* index.html */,
 			);
-			name = App;
+			path = www;
 			sourceTree = "<group>";
 		};
 		718E476D1B88A00B00540B81 = {
@@ -82,8 +82,8 @@
 		718E47781B88A00B00540B81 /* SoundWarp */ = {
 			isa = PBXGroup;
 			children = (
+				717EE86C1B8C8D35008A6B18 /* www */,
 				71E6EE2E1B892F070009A25F /* WebView */,
-				71654F851B88D58C0080B2C7 /* App */,
 				712E1A0D1B8A11B5008CF2ED /* Utils */,
 				718E47791B88A00B00540B81 /* AppDelegate.swift */,
 				71E6EE2A1B8923DF0009A25F /* init.swift */,
@@ -160,7 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71654F841B88D5860080B2C7 /* index.html in Resources */,
+				717EE8731B8C90EF008A6B18 /* index.html in Resources */,
 				718E477C1B88A00C00540B81 /* Assets.xcassets in Resources */,
 				718E477F1B88A00C00540B81 /* MainMenu.xib in Resources */,
 			);
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71E6EE2B1B8923DF0009A25F /* init.swift in Sources */,
-				714D37C21B8B658A00D6CAFC /* JSON.swift in Sources */,
+				714D37C21B8B658A00D6CAFC /* NSDictionaryHelper.swift in Sources */,
 				712E1A0F1B8A1203008CF2ED /* BundleResources.swift in Sources */,
 				718E477A1B88A00B00540B81 /* AppDelegate.swift in Sources */,
 				712E1A111B8A1FBC008CF2ED /* WebView.swift in Sources */,
