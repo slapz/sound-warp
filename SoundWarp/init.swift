@@ -9,14 +9,20 @@
 import Foundation
 import WebKit
 
+let ENV = NSProcessInfo.processInfo().environment;
 let WEBVIEW_BASE_URL = "";
-let USER_DEFAULTS = NSUserDefaults.standardUserDefaults();
 
 func initApp(app: AppDelegate)
 {
   
   /* Initialize JS bridge */
   initJSBridge(app);
+  
+  if ENV["DEBUG_ENV"] != nil {
+    debugPrint("Debugging mode ON");
+  }
+  
+  enableWebInspector(ENV["DEBUG_ENV"] != nil);
   
   /* Load WebView content */
   let content = readHTMLToString(getResourcePath("index", type: "html"), encoding: DEFAULT_ENCODING);
