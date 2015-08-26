@@ -10,40 +10,35 @@
 		712E1A0F1B8A1203008CF2ED /* BundleResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712E1A0E1B8A1203008CF2ED /* BundleResources.swift */; };
 		712E1A111B8A1FBC008CF2ED /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712E1A101B8A1FBC008CF2ED /* WebView.swift */; };
 		714D37C21B8B658A00D6CAFC /* NSDictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714D37C11B8B658A00D6CAFC /* NSDictionaryHelper.swift */; };
+		7153F5051B8E557E0067A636 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 71DC9D401B8E3DF600F69342 /* index.html */; };
 		718E477A1B88A00B00540B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E47791B88A00B00540B81 /* AppDelegate.swift */; };
 		718E477C1B88A00C00540B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718E477B1B88A00C00540B81 /* Assets.xcassets */; };
 		718E477F1B88A00C00540B81 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 718E477D1B88A00C00540B81 /* MainMenu.xib */; };
-		71ACAFDA1B8D1B35004C2C2A /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71A1DD4E1B8D0E8400252064 /* index.html */; };
 		71E6EE291B891DEE0009A25F /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6EE281B891DEE0009A25F /* JSBridge.swift */; };
 		71E6EE2B1B8923DF0009A25F /* init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6EE2A1B8923DF0009A25F /* init.swift */; };
 		71E6EE2D1B892BA50009A25F /* JSBridgeExports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6EE2C1B892BA50009A25F /* JSBridgeExports.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		71A1DD471B8D0E1700252064 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				71ACAFDA1B8D1B35004C2C2A /* index.html in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		712E1A0E1B8A1203008CF2ED /* BundleResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleResources.swift; sourceTree = "<group>"; };
 		712E1A101B8A1FBC008CF2ED /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		714D37C11B8B658A00D6CAFC /* NSDictionaryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryHelper.swift; sourceTree = "<group>"; };
-		717EE86D1B8C8D35008A6B18 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		718E47761B88A00B00540B81 /* SoundWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		718E47791B88A00B00540B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718E477B1B88A00C00540B81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		718E477E1B88A00C00540B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		718E47801B88A00C00540B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71A1DD4E1B8D0E8400252064 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		71A1DD6A1B8D0ECC00252064 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		71DC9D3D1B8E3DF600F69342 /* .eslintrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .eslintrc; sourceTree = "<group>"; };
+		71DC9D3E1B8E3DF600F69342 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		71DC9D401B8E3DF600F69342 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		71DC9D411B8E3DF600F69342 /* gulpfile.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gulpfile.js; sourceTree = "<group>"; };
+		71DCD5451B8E3E1800F69342 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		71DCD5481B8E3E1800F69342 /* glyphicons.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = glyphicons.css; sourceTree = "<group>"; };
+		71DCD5491B8E3E1800F69342 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
+		71DCD54C1B8E3E1800F69342 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		71DCD54E1B8E3E1800F69342 /* app_bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app_bridge.js; sourceTree = "<group>"; };
+		71DCD5501B8E3E1800F69342 /* default.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = default.js; sourceTree = "<group>"; };
+		71DCD5521B8E3E1800F69342 /* gutil.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = gutil.js; sourceTree = "<group>"; };
 		71E6EE281B891DEE0009A25F /* JSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
 		71E6EE2A1B8923DF0009A25F /* init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = init.swift; sourceTree = "<group>"; };
 		71E6EE2C1B892BA50009A25F /* JSBridgeExports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSBridgeExports.swift; sourceTree = "<group>"; };
@@ -70,18 +65,10 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		717EE86C1B8C8D35008A6B18 /* www */ = {
-			isa = PBXGroup;
-			children = (
-				717EE86D1B8C8D35008A6B18 /* index.html */,
-			);
-			path = www;
-			sourceTree = "<group>";
-		};
 		718E476D1B88A00B00540B81 = {
 			isa = PBXGroup;
 			children = (
-				71A1DD4C1B8D0E8400252064 /* dist */,
+				71DC9D3C1B8E3DF600F69342 /* application */,
 				718E47781B88A00B00540B81 /* SoundWarp */,
 				718E47771B88A00B00540B81 /* Products */,
 			);
@@ -98,7 +85,6 @@
 		718E47781B88A00B00540B81 /* SoundWarp */ = {
 			isa = PBXGroup;
 			children = (
-				717EE86C1B8C8D35008A6B18 /* www */,
 				71E6EE2E1B892F070009A25F /* WebView */,
 				712E1A0D1B8A11B5008CF2ED /* Utils */,
 				718E47791B88A00B00540B81 /* AppDelegate.swift */,
@@ -110,30 +96,86 @@
 			path = SoundWarp;
 			sourceTree = "<group>";
 		};
-		71A1DD4C1B8D0E8400252064 /* dist */ = {
+		71DC9D3C1B8E3DF600F69342 /* application */ = {
 			isa = PBXGroup;
 			children = (
-				71A1DD4D1B8D0E8400252064 /* Debug */,
-				71A1DD4F1B8D0E8400252064 /* Release */,
+				71DC9D3D1B8E3DF600F69342 /* .eslintrc */,
+				71DC9D3E1B8E3DF600F69342 /* .gitignore */,
+				71DC9D3F1B8E3DF600F69342 /* dist */,
+				71DC9D411B8E3DF600F69342 /* gulpfile.js */,
+				71DCD5451B8E3E1800F69342 /* package.json */,
+				71DCD5461B8E3E1800F69342 /* source */,
+				71DCD54F1B8E3E1800F69342 /* tasks */,
 			);
-			name = dist;
-			path = application/dist;
+			path = application;
 			sourceTree = "<group>";
 		};
-		71A1DD4D1B8D0E8400252064 /* Debug */ = {
+		71DC9D3F1B8E3DF600F69342 /* dist */ = {
 			isa = PBXGroup;
 			children = (
-				71A1DD4E1B8D0E8400252064 /* index.html */,
+				71DC9D401B8E3DF600F69342 /* index.html */,
 			);
-			path = Debug;
+			path = dist;
 			sourceTree = "<group>";
 		};
-		71A1DD4F1B8D0E8400252064 /* Release */ = {
+		71DCD5461B8E3E1800F69342 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				71A1DD6A1B8D0ECC00252064 /* index.html */,
+				71DCD5471B8E3E1800F69342 /* css */,
+				71DCD54A1B8E3E1800F69342 /* html */,
+				71DCD54B1B8E3E1800F69342 /* images */,
+				71DCD54C1B8E3E1800F69342 /* index.html */,
+				71DCD54D1B8E3E1800F69342 /* js */,
 			);
-			path = Release;
+			path = source;
+			sourceTree = "<group>";
+		};
+		71DCD5471B8E3E1800F69342 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				71DCD5481B8E3E1800F69342 /* glyphicons.css */,
+				71DCD5491B8E3E1800F69342 /* styles.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		71DCD54A1B8E3E1800F69342 /* html */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		71DCD54B1B8E3E1800F69342 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		71DCD54D1B8E3E1800F69342 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				71DCD54E1B8E3E1800F69342 /* app_bridge.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		71DCD54F1B8E3E1800F69342 /* tasks */ = {
+			isa = PBXGroup;
+			children = (
+				71DCD5501B8E3E1800F69342 /* default.js */,
+				71DCD5511B8E3E1800F69342 /* helpers */,
+			);
+			path = tasks;
+			sourceTree = "<group>";
+		};
+		71DCD5511B8E3E1800F69342 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				71DCD5521B8E3E1800F69342 /* gutil.js */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 		71E6EE2E1B892F070009A25F /* WebView */ = {
@@ -155,7 +197,7 @@
 				718E47721B88A00B00540B81 /* Sources */,
 				718E47731B88A00B00540B81 /* Frameworks */,
 				718E47741B88A00B00540B81 /* Resources */,
-				71A1DD471B8D0E1700252064 /* CopyFiles */,
+				7153F5041B8E533B0067A636 /* Clean application build directory */,
 			);
 			buildRules = (
 			);
@@ -205,10 +247,29 @@
 			files = (
 				718E477C1B88A00C00540B81 /* Assets.xcassets in Resources */,
 				718E477F1B88A00C00540B81 /* MainMenu.xib in Resources */,
+				7153F5051B8E557E0067A636 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7153F5041B8E533B0067A636 /* Clean application build directory */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean application build directory";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf \"${SOURCE_ROOT}/application/dist/\";";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		718E47721B88A00B00540B81 /* Sources */ = {
