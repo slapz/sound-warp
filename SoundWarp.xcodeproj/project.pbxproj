@@ -197,7 +197,6 @@
 				718E47721B88A00B00540B81 /* Sources */,
 				718E47731B88A00B00540B81 /* Frameworks */,
 				718E47741B88A00B00540B81 /* Resources */,
-				7153F5041B8E533B0067A636 /* Clean application build directory */,
 			);
 			buildRules = (
 			);
@@ -252,24 +251,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7153F5041B8E533B0067A636 /* Clean application build directory */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Clean application build directory";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rm -rf \"${SOURCE_ROOT}/application/dist/\";";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		718E47721B88A00B00540B81 /* Sources */ = {

@@ -61,6 +61,12 @@ class JSBridge: NSObject, JSBridgeProtocol {
     self.getRootScope().setValue(value, forKey: key);
     return self;
   }
+
+  func exportKeyPath(keyPath: String, value: AnyObject) -> Self
+  {
+    self.getRootScope().setValue(value, forKeyPath: keyPath);
+    return self;
+  }
   
   func createJSEvent(data: NSDictionary) -> String
   {

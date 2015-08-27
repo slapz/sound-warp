@@ -20,5 +20,4 @@ func setWebViewContent(webview: WebView, content: String)
 func enableWebInspector(flag: Bool)
 {
   USER_DEFAULTS.setBool(flag, forKey: "WebKitDeveloperExtras");
-  USER_DEFAULTS.synchronize();
 }

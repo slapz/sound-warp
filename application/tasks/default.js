@@ -16,6 +16,14 @@ module.exports = function(gulp) {
   let gulpif = require('gulp-if');
   let argv = require('yargs').argv;
 
+  let jsSources = [
+    `${OUT_PATH}/js/jquery.js`,
+    `${OUT_PATH}/js/bootstrap.js`,
+    `${OUT_PATH}/js/watch.js`,
+    `${OUT_PATH}/js/utils.js`,
+    `${OUT_PATH}/js/app.js`
+  ];
+
   const MINIFY_SOURCES = argv.minify || false;
 
   gulp.task('clean', function() {
@@ -54,9 +62,16 @@ module.exports = function(gulp) {
     'deps:bootstrap:fonts'
   ]);
 
+  gulp.task('deps:watchjs', function() {
+    return gulp.src([
+      `${MODULES_PATH}/watchjs/src/watch.js`
+    ]).pipe(gulp.dest(`${OUT_PATH}/js/`))
+  })
+
   gulp.task('deps', [
     'deps:jquery',
-    'deps:bootstrap'
+    'deps:bootstrap',
+    'deps:watchjs'
   ]);
 
   gulp.task('sources:images', function() {
@@ -191,11 +206,7 @@ module.exports = function(gulp) {
   });
 
   gulp.task('uglify:js', function() {
-    return gulp.src([
-        `${OUT_PATH}/js/jquery.js`,
-        `${OUT_PATH}/js/bootstrap.js`,
-        `${OUT_PATH}/js/app_*.js`
-      ])
+    return gulp.src(jsSources)
       .pipe(concat('scripts.js'))
       .pipe(gulpif(MINIFY_SOURCES, uglify()))
       .pipe(gulp.dest(`${OUT_PATH}/js/`));

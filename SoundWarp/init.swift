@@ -38,6 +38,6 @@ func initJSBridge(app: AppDelegate)
   app.jsBridge = JSBridge(view: app.webview);
   app.jsBridgeExports = JSBridgeExports(jsBridge: app.jsBridge, app: app);
 
-  /* Export bridge as global JS object */
-  app.jsBridge.export("bridge", value: app.jsBridgeExports);
+  /* Export global JS object */
+  app.jsBridge.export("chrome", value: app.jsBridgeExports);
 }

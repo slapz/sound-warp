@@ -63,6 +63,14 @@ class JSBridgeExports : NSObject {
     }
   }
   
+  func isTitleVisible() -> Bool
+  {
+    if self.app.window.titleVisibility == NSWindowTitleVisibility.Visible {
+      return true;
+    }
+    return false;
+  }
+  
   func setWindowAppearance(flag: Int)
   {
     var appearance: String;
@@ -106,9 +114,10 @@ class JSBridgeExports : NSObject {
     case Selector("off:"): return "off"
     case Selector("configureSearchInput:"): return "configureSearchInput"
     case Selector("setTitleVisibility:"): return "setTitleVisibility"
+    case Selector("isTitleVisible"): return "isTitleVisible"
     case Selector("setWindowAppearance:"): return "setWindowAppearance"
     case Selector("setWindowTitle:"): return "setWindowTitle"
-    case Selector("getWindowTitle"): return "updateWindowTitle"
+    case Selector("getWindowTitle"): return "getWindowTitle"
     default: return nil
     }
   }
@@ -119,8 +128,8 @@ class JSBridgeExports : NSObject {
     case Selector("off:"): return false
     case Selector("configureSearchInput:"): return false
     case Selector("setTitleVisibility:"): return false
+    case Selector("isTitleVisible"): return false
     case Selector("setWindowAppearance:"): return false
-    case Selector("updateWindowTitle"): return false
     case Selector("setWindowTitle:"): return false
     case Selector("getWindowTitle"): return false
     default: return true
