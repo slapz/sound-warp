@@ -12,9 +12,9 @@
   };
 
   /* Handle window.title changes */
-  chrome.setWindowTitle(document.title);
+  chrome.setTitle(document.title);
   watch(document, 'title', function() {
-    chrome.setWindowTitle(document.title);
+    chrome.setTitle(document.title);
   });
 
 })(window);

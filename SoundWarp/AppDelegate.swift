@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @IBOutlet var webview: WebView!
   
   @IBOutlet var historyNavigation: NSSegmentedControl!
-  @IBOutlet var search: NSSearchFieldCell!
+  @IBOutlet weak var search: NSSearchFieldCell!
   
   var jsBridge: JSBridge!
   var jsBridgeExports: JSBridgeExports!

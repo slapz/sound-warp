@@ -63,6 +63,16 @@ class JSBridgeExports : NSObject {
     }
   }
   
+  func showTitle()
+  {
+    return self.setTitleVisibility(true);
+  }
+  
+  func hideTitle()
+  {
+    return self.setTitleVisibility(false);
+  }
+  
   func isTitleVisible() -> Bool
   {
     if self.app.window.titleVisibility == NSWindowTitleVisibility.Visible {
@@ -97,13 +107,13 @@ class JSBridgeExports : NSObject {
     }
   }
   
-  func setWindowTitle(title: String) -> String
+  func setTitle(title: String) -> String
   {
     self.app.window.title = title;
-    return self.getWindowTitle();
+    return self.getTitle();
   }
   
-  func getWindowTitle() -> String
+  func getTitle() -> String
   {
     return self.app.window.title;
   }
@@ -115,9 +125,11 @@ class JSBridgeExports : NSObject {
     case Selector("configureSearchInput:"): return "configureSearchInput"
     case Selector("setTitleVisibility:"): return "setTitleVisibility"
     case Selector("isTitleVisible"): return "isTitleVisible"
-    case Selector("setWindowAppearance:"): return "setWindowAppearance"
-    case Selector("setWindowTitle:"): return "setWindowTitle"
-    case Selector("getWindowTitle"): return "getWindowTitle"
+    case Selector("setAppearance:"): return "setAppearance"
+    case Selector("setTitle:"): return "setTitle"
+    case Selector("getTitle"): return "getTitle"
+    case Selector("showTitle"): return "showTitle"
+    case Selector("hideTitle"): return "hideTitle"
     default: return nil
     }
   }
@@ -129,9 +141,11 @@ class JSBridgeExports : NSObject {
     case Selector("configureSearchInput:"): return false
     case Selector("setTitleVisibility:"): return false
     case Selector("isTitleVisible"): return false
-    case Selector("setWindowAppearance:"): return false
-    case Selector("setWindowTitle:"): return false
-    case Selector("getWindowTitle"): return false
+    case Selector("setAppearance:"): return false
+    case Selector("setTitle:"): return false
+    case Selector("getTitle"): return false
+    case Selector("showTitle"): return false
+    case Selector("hideTitle"): return false
     default: return true
     }
   }

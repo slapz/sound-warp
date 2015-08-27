@@ -17,7 +17,7 @@
             <connections>
                 <outlet property="contentView" destination="EiT-Mj-1SZ" id="UCK-dl-Dyr"/>
                 <outlet property="historyNavigation" destination="r1S-GZ-sTG" id="5BT-GZ-JIh"/>
-                <outlet property="search" destination="sgZ-AA-tAM" id="o7T-oy-Pqy"/>
+                <outlet property="search" destination="iZ8-yC-jJ0" id="MaR-sz-1ED"/>
                 <outlet property="webview" destination="hka-QU-SdS" id="nqH-SU-TZE"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="xDy-0O-mKN"/>
             </connections>
@@ -354,7 +354,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Default Title" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Default Title" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="640" height="353"/>
@@ -369,8 +369,8 @@
                     <toolbarItem implicitItemIdentifier="CCA706B8-3FB1-4B02-BE95-99472FED2494" label="History" paletteLabel="History" id="Er4-w7-nNu">
                         <nil key="toolTip"/>
                         <size key="minSize" width="0.0" height="22"/>
-                        <size key="maxSize" width="104" height="26"/>
-                        <segmentedControl key="view" verticalHuggingPriority="750" id="r1S-GZ-sTG">
+                        <size key="maxSize" width="104" height="27"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" misplaced="YES" id="r1S-GZ-sTG">
                             <rect key="frame" x="0.0" y="14" width="58" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <animations/>
@@ -390,31 +390,31 @@
                             </segmentedCell>
                         </segmentedControl>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="0AD332EA-CB73-4FEC-A1B5-CB0DAE0BEA5B" label="Search" paletteLabel="Search" id="0G1-mX-fJP">
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="qF6-1L-MND"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="hMa-hj-NUN"/>
+                    <toolbarItem implicitItemIdentifier="56FC81E2-50BF-4BEA-8164-8326DC493A9C" label="Search" paletteLabel="Search" id="ocw-c2-KyQ">
                         <nil key="toolTip"/>
                         <size key="minSize" width="96" height="22"/>
                         <size key="maxSize" width="96" height="22"/>
-                        <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="n7n-vP-2qZ">
+                        <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="HCs-nX-eia">
                             <rect key="frame" x="0.0" y="14" width="96" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <animations/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="sgZ-AA-tAM">
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="iZ8-yC-jJ0">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </searchFieldCell>
                             <connections>
-                                <action selector="processSearch:" target="Voe-Tx-rLC" id="NVu-vH-AZL"/>
+                                <action selector="processSearch:" target="Voe-Tx-rLC" id="K0D-JQ-EKO"/>
                             </connections>
                         </searchField>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="qF6-1L-MND"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="hMa-hj-NUN"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="Er4-w7-nNu"/>
                     <toolbarItem reference="hMa-hj-NUN"/>
-                    <toolbarItem reference="0G1-mX-fJP"/>
+                    <toolbarItem reference="ocw-c2-KyQ"/>
                 </defaultToolbarItems>
             </toolbar>
             <point key="canvasLocation" x="508" y="894.5"/>
