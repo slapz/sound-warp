@@ -12,7 +12,7 @@ import AppKit
 class SearchInput: NSSearchField {
   
   override func awakeFromNib() {
-    //self.appearance = NSAppearance(named: NSAppearanceNameAqua);
+    self.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
   }
   
 }

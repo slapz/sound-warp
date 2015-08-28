@@ -355,7 +355,7 @@
             </items>
         </menu>
         <window title="Default Title" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="640" height="353"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
@@ -364,13 +364,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <animations/>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="860FD2E6-76E4-46B9-B6B7-585C2FBBADF0" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="vBJ-cZ-aDG">
+            <toolbar key="toolbar" implicitIdentifier="860FD2E6-76E4-46B9-B6B7-585C2FBBADF0" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="vBJ-cZ-aDG">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="CCA706B8-3FB1-4B02-BE95-99472FED2494" label="History" paletteLabel="History" id="Er4-w7-nNu">
                         <nil key="toolTip"/>
                         <size key="minSize" width="0.0" height="22"/>
                         <size key="maxSize" width="104" height="27"/>
-                        <segmentedControl key="view" verticalHuggingPriority="750" misplaced="YES" id="r1S-GZ-sTG">
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="r1S-GZ-sTG">
                             <rect key="frame" x="0.0" y="14" width="58" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <animations/>
@@ -396,7 +396,7 @@
                         <nil key="toolTip"/>
                         <size key="minSize" width="96" height="22"/>
                         <size key="maxSize" width="96" height="22"/>
-                        <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="HCs-nX-eia">
+                        <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="HCs-nX-eia" customClass="SearchInput" customModule="SoundWarp" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="14" width="96" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <animations/>
