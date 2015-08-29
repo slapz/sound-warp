@@ -5,6 +5,7 @@ module.exports = function(gulp) {
   let gs = require('gulp-sync')(gulp);
   let concat = require('gulp-concat');
   let replace = require('gulp-replace');
+  let less = require('gulp-less');
   let fs = require('fs');
   let vinylPaths = require('vinyl-paths');
   let rm = require('del');
@@ -21,6 +22,7 @@ module.exports = function(gulp) {
     `${OUT_PATH}/js/bootstrap.js`,
     `${OUT_PATH}/js/watch.js`,
     `${OUT_PATH}/js/utils.js`,
+    `${OUT_PATH}/js/chrome.js`,
     `${OUT_PATH}/js/app.js`
   ];
 
@@ -40,8 +42,8 @@ module.exports = function(gulp) {
 
   gulp.task('deps:bootstrap:css', function() {
     return gulp.src([
-      `${MODULES_PATH}/bootstrap/dist/css/bootstrap.css`
-    ]).pipe(gulp.dest(`${OUT_PATH}/css/`));
+      `${MODULES_PATH}/bootstrap/less/*`
+    ]).pipe(gulp.dest(`${OUT_PATH}/css/bootstrap/`));
   });
 
   gulp.task('deps:bootstrap:js', function() {
@@ -197,7 +199,8 @@ module.exports = function(gulp) {
         `${OUT_PATH}/fonts/*.css`
       ])
       .pipe(gulpif(MINIFY_SOURCES, minifyCSS(opts)))
-      .pipe(concat('styles.css'))
+      .pipe(less())
+//      .pipe(concat('styles.css'))
       .pipe(cssBase64({
         baseDir: `${OUT_PATH}/images`,
         extensionsAllowed: ['.gif', '.svg', '.png']
@@ -220,7 +223,7 @@ module.exports = function(gulp) {
   gulp.task('build', gs.sync([
     'build:css',
     'build:js',
-    'build:clean'
+    //'build:clean'
   ]));
 
   gulp.task('minify', function() {
@@ -249,12 +252,12 @@ module.exports = function(gulp) {
     'build',
     'minify'
   ]), function(cb) {
-    let src = [
+    /*let src = [
       `${OUT_PATH}/*`,
       `${OUT_PATH}/.temp/**`,
       `!${OUT_PATH}/index.html`
     ];
-    rm(src, cb);
+    rm(src, cb);*/
   });
 
   gulp.task('default', ['compile']);

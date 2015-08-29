@@ -19,6 +19,7 @@
     "gulp-cssfont64": "0.0.1",
     "gulp-if": "^1.2.5",
     "gulp-inject": "^1.5.0",
+    "gulp-less": "^3.0.3",
     "gulp-minify-css": "^1.2.1",
     "gulp-minify-html": "^1.0.4",
     "gulp-replace": "^0.5.4",

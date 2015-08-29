@@ -31,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     self.window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
     self.window.movableByWindowBackground = true;
     
+    self.window.titlebarAppearsTransparent = true;
     self.window.styleMask |= NSFullSizeContentViewWindowMask;
     
     self.window.makeKeyAndOrderFront(self.window);
