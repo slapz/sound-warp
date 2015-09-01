@@ -42,7 +42,7 @@ module.exports = function(gulp) {
 
   gulp.task('deps:bootstrap:css', function() {
     return gulp.src([
-      `${MODULES_PATH}/bootstrap/less/*`
+      `${MODULES_PATH}/bootstrap/less/**/*`
     ]).pipe(gulp.dest(`${OUT_PATH}/css/bootstrap/`));
   });
 
@@ -84,7 +84,7 @@ module.exports = function(gulp) {
 
   gulp.task('sources:css', function() {
     return gulp.src([
-      `${SOURCE_PATH}/css/*`
+      `${SOURCE_PATH}/css/**/*`
     ]).pipe(gulp.dest(`${OUT_PATH}/css`));
   });
 
@@ -108,7 +108,13 @@ module.exports = function(gulp) {
     'sources:html'
   ]);
 
-  gulp.task('build:css', function() {
+  gulp.task('build:css:process', function() {
+    return gulp.src(`${OUT_PATH}/css/*.less`)
+      .pipe(less())
+      .pipe(gulp.dest(`${OUT_PATH}`));
+  });
+
+  gulp.task('build:css', ['build:css:process'], function() {
     return gulp.src(`${OUT_PATH}/index.html`)
       /* Replace <link> with related source */
       .pipe(replace(/<link rel="stylesheet" href="([A-Za-z\/\.]+)\.css"[^>]*>/, function(match) {
