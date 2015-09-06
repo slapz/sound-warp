@@ -1,0 +1,23 @@
+.navbar-main {
+  .navbar-fixed-top;
+  .navbar-default;
+
+  background-color: #fff;
+  border-bottom-color: #fff;
+  padding-left: 80px;
+  min-height: 38px;
+
+  .navbar-nav > li {
+    > a {
+      padding-top: 9px;
+      padding-bottom: 9px;
+    }
+    &.active {
+      > a {
+        &, &:hover, &:focus {
+          background-color: #111;
+        }
+      }
+    }
+  }
+}
