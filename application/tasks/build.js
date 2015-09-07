@@ -13,7 +13,7 @@ module.exports = function(gulp) {
     argv = require('yargs').argv,
     task = require(`${TASKS_PATH}/helpers/task`).task,
     clean = require(`${TASKS_PATH}/helpers/clean`),
-    lessc = require(`${TASKS_PATH}/helpers/compile_less`),
+    sass = require(`${TASKS_PATH}/helpers/compile_scss`),
     inject = require(`${TASKS_PATH}/helpers/inject`),
     fpipe = require(`${TASKS_PATH}/helpers/fast_pipe`),
     pipe = fpipe.pipe,
@@ -28,24 +28,33 @@ module.exports = function(gulp) {
     `${OUT_PATH}/js/app.js`
   ];
 
+  let bootstrapSCSS = [
+    `${MODULES_PATH}/bootstrap/scss/*.scss`,
+    `${MODULES_PATH}/bootstrap/scss/**/*.scss`,
+    `!${MODULES_PATH}/bootstrap/scss/bootstrap.scss`,
+    `!${MODULES_PATH}/bootstrap/scss/bootstrap-reboot.scss`,
+    `!${MODULES_PATH}/bootstrap/scss/bootstrap-flex.scss`,
+    `!${MODULES_PATH}/bootstrap/scss/bootstrap-grid.scss`
+  ];
+
   const MINIFY_SOURCES = argv.minify || false;
 
   task('clean', clean(OUT_PATH));
-  task('cleanup', clean([`${OUT_PATH}/css`, `${OUT_PATH}/fonts`, `${OUT_PATH}/js`, `${OUT_PATH}/less`]));
+  task('cleanup', clean([`${OUT_PATH}/css`, `${OUT_PATH}/fonts`, `${OUT_PATH}/js`, `${OUT_PATH}/scss`]));
   task('deps:jquery', copy(`${MODULES_PATH}/jquery/dist/jquery.js`, `${OUT_PATH}/js/`));
-  task('deps:bootstrap:css', copy(`${MODULES_PATH}/bootstrap/less/**/*`, `${OUT_PATH}/less/bootstrap/`));
+  task('deps:bootstrap:scss', copy(bootstrapSCSS, `${OUT_PATH}/scss/bootstrap/`));
   task('deps:bootstrap:js', copy(`${MODULES_PATH}/bootstrap/dist/js/bootstrap.js`, `${OUT_PATH}/js/`));
   task('deps:bootstrap:fonts', copy(`${MODULES_PATH}/bootstrap/dist/fonts/*`, `${OUT_PATH}/fonts/`));
-  task('deps:bootstrap', ['deps:bootstrap:css', 'deps:bootstrap:js', 'deps:bootstrap:fonts']);
+  task('deps:bootstrap', ['deps:bootstrap:scss', 'deps:bootstrap:js', 'deps:bootstrap:fonts']);
   task('deps:watchjs', copy(`${MODULES_PATH}/watchjs/src/watch.js`, `${OUT_PATH}/js/`));
   task('deps', ['deps:jquery', 'deps:bootstrap', 'deps:watchjs']);
   task('sources:images', copy(`${SOURCE_PATH}/images/*`, `${OUT_PATH}/images`));
-  task('sources:less', copy([`${SOURCE_PATH}/less/*.less`, `${SOURCE_PATH}/less/**/*.less`], `${OUT_PATH}/less`));
+  task('sources:scss', copy([`${SOURCE_PATH}/scss/*.scss`, `${SOURCE_PATH}/scss/**/*.scss`], `${OUT_PATH}/scss`));
   task('sources:css', copy(`${SOURCE_PATH}/css/**/*.css`, `${OUT_PATH}/css`));
   task('sources:js', copy(`${SOURCE_PATH}/js/*`, `${OUT_PATH}/js`));
   task('sources:html', copy([`${SOURCE_PATH}/*.html`, `${SOURCE_PATH}/html/*.html`], `${OUT_PATH}`));
-  task('sources', ['sources:less', 'sources:css', 'sources:images', 'sources:js', 'sources:html']);
-  task('preprocess:less', lessc([`${OUT_PATH}/less/main.less`], `${OUT_PATH}/css/`));
+  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html']);
+  task('preprocess:scss', sass([`${OUT_PATH}/scss/main.scss`], `${OUT_PATH}/css/`));
   task('inject:css', inject({
     target: `${OUT_PATH}/index.html`,
     dest: `${OUT_PATH}`,
@@ -111,7 +120,7 @@ module.exports = function(gulp) {
     'clean',
     'prepare:sources',
     'prepare:fonts',
-    'preprocess:less',
+    'preprocess:scss',
     'merge:css',
     'merge:js',
     'inject',

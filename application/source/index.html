@@ -7,15 +7,19 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-main">
+    <header role="banner" class="header">
 
-      <div class="btn-group navbar-btn">
-        <button type="button" class="btn btn-link"><i class="glyphicon glyphicon-backward"></i></button>
-        <button type="button" class="btn btn-link"><i class="glyphicon glyphicon-play"></i></button>
-        <button type="button" class="btn btn-link"><i class="glyphicon glyphicon-forward"></i></button>
+      <div class="header-control header-btn-group">
+        <button type="button" class="header-btn"><i class="i-previous"></i><i class="i-previous"></i></button>
+        <button type="button" class="header-btn"><i class="i-play"></i></button>
+        <button type="button" class="header-btn"><i class="i-next"></i><i class="i-next"></i></button>
       </div>
 
-    </nav>
+      <div class="header-control">
+        <input type="range" min="0" max="100" step="5" value="75" class="volume-control">
+      </div>
+
+    </header>
 
     <div class="container"></div>
 

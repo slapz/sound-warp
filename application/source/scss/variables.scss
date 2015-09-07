@@ -1,0 +1,50 @@
+// Native OS X colors
+//$alternateSelectedControlColor: #0A50D0;
+//$controlColor: #E7E7E7;
+//$controlHighlightColor: #E3E3E3;
+//$controlLightHighlightColor: #FFFFFF;
+//$controlShadowColor: #8E8E8E;
+//$disabledControlTextColor: #6C6C6C;
+//$gridColor: #C0C0C0;
+//$headerColor: #999999;
+//$keyboardFocusIndicatorColor: #2F83FA;
+//$knobColor: #8685AC;
+//$secondaryLabelColor: #E4E4E4;
+//$secondarySelectedControlColor: #E4E4E4;
+//$selectedControlColor: #A4CCFF;
+//$selectedControlTextColor: #000000;
+//$selectedKnobColor: #535187;
+//$selectedMenuItemColor: #0B55E0;
+//$selectedTextBackgroundColor: #A3CCFE;
+//$selectedTextColor: #000000;
+//$shadowColor: #000000;
+//$tertiaryLabelColor: #B3B3B3;
+//$textBackgroundColor: #FFFFFF;
+//$textColor: #000000;
+//$windowFrameColor: #9A9A9A;
+//$windowFrameTextColor: #000000;
+
+// Colors
+$gray-dark: #333333;
+$gray: #545454;
+$gray-light: #C6C6C6;
+$gray-lighter: #DFE0DF;
+$gray-lightest: $controlColor;
+$brand-primary: #f50;
+$brand-success: #5cb85c;
+$brand-info: #5bc0de;
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
+
+// Links
+$link-color: #38d;
+$link-hover-color: $gray-dark;
+
+// Options
+$spacer: 1rem;
+$enable-flex: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: true;
+$enable-transitions: true;
+$enable-hover-media-query: false;
