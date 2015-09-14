@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A262e" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A278b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8164.2"/>
@@ -16,8 +16,6 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SoundWarp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="EiT-Mj-1SZ" id="UCK-dl-Dyr"/>
-                <outlet property="historyNavigation" destination="r1S-GZ-sTG" id="5BT-GZ-JIh"/>
-                <outlet property="search" destination="iZ8-yC-jJ0" id="MaR-sz-1ED"/>
                 <outlet property="webview" destination="hka-QU-SdS" id="nqH-SU-TZE"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="xDy-0O-mKN"/>
             </connections>
@@ -355,82 +353,25 @@
             </items>
         </menu>
         <window title="Default Title" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="640" height="353"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
+            <rect key="contentRect" x="335" y="390" width="1024" height="600"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ" customClass="NSVisualEffectView">
-                <rect key="frame" x="0.0" y="0.0" width="640" height="353"/>
+            <value key="minSize" type="size" width="1024" height="600"/>
+            <view key="contentView" wantsLayer="YES" canDrawConcurrently="YES" id="EiT-Mj-1SZ" customClass="NSVisualEffectView">
+                <rect key="frame" x="0.0" y="0.0" width="1024" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <webView canDrawConcurrently="YES" focusRingType="none" fixedFrame="YES" maintainsBackForwardList="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hka-QU-SdS">
+                        <rect key="frame" x="122" y="218" width="779" height="163"/>
+                        <animations/>
+                        <webPreferences key="preferences" defaultFontSize="14" defaultFixedFontSize="11" minimumFontSize="11" javaEnabled="NO">
+                            <nil key="identifier"/>
+                        </webPreferences>
+                    </webView>
+                </subviews>
                 <animations/>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="860FD2E6-76E4-46B9-B6B7-585C2FBBADF0" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="vBJ-cZ-aDG">
-                <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="CCA706B8-3FB1-4B02-BE95-99472FED2494" label="History" paletteLabel="History" id="Er4-w7-nNu">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="0.0" height="22"/>
-                        <size key="maxSize" width="104" height="27"/>
-                        <segmentedControl key="view" verticalHuggingPriority="750" id="r1S-GZ-sTG">
-                            <rect key="frame" x="0.0" y="14" width="58" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <animations/>
-                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="nrv-A8-hQo">
-                                <font key="font" metaFont="system"/>
-                                <segments>
-                                    <segment image="NSGoLeftTemplate">
-                                        <nil key="label"/>
-                                    </segment>
-                                    <segment toolTip="Show the next page" image="NSGoRightTemplate" tag="1">
-                                        <nil key="label"/>
-                                    </segment>
-                                </segments>
-                                <connections>
-                                    <action selector="processHistoryNavigation:" target="Voe-Tx-rLC" id="8W8-wV-Ucx"/>
-                                </connections>
-                            </segmentedCell>
-                        </segmentedControl>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="qF6-1L-MND"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="hMa-hj-NUN"/>
-                    <toolbarItem implicitItemIdentifier="56FC81E2-50BF-4BEA-8164-8326DC493A9C" label="Search" paletteLabel="Search" id="ocw-c2-KyQ">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="96" height="22"/>
-                        <size key="maxSize" width="96" height="22"/>
-                        <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="HCs-nX-eia" customClass="SearchInput" customModule="SoundWarp" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="14" width="96" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <animations/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="iZ8-yC-jJ0">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </searchFieldCell>
-                            <connections>
-                                <action selector="processSearch:" target="Voe-Tx-rLC" id="K0D-JQ-EKO"/>
-                            </connections>
-                        </searchField>
-                    </toolbarItem>
-                </allowedToolbarItems>
-                <defaultToolbarItems>
-                    <toolbarItem reference="Er4-w7-nNu"/>
-                    <toolbarItem reference="hMa-hj-NUN"/>
-                    <toolbarItem reference="ocw-c2-KyQ"/>
-                </defaultToolbarItems>
-            </toolbar>
-            <point key="canvasLocation" x="508" y="894.5"/>
+            <point key="canvasLocation" x="473" y="966"/>
         </window>
-        <webView canDrawConcurrently="YES" focusRingType="none" maintainsBackForwardList="NO" id="hka-QU-SdS">
-            <rect key="frame" x="0.0" y="0.0" width="513" height="277"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <animations/>
-            <webPreferences key="preferences" defaultFontSize="14" defaultFixedFontSize="11" minimumFontSize="11" javaEnabled="NO">
-                <nil key="identifier"/>
-            </webPreferences>
-            <point key="canvasLocation" x="508.5" y="1275.5"/>
-        </webView>
     </objects>
-    <resources>
-        <image name="NSGoLeftTemplate" width="9" height="12"/>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
-    </resources>
 </document>

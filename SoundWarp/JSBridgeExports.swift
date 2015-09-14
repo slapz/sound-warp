@@ -92,21 +92,6 @@ class JSBridgeExports : NSObject {
     self.app.window.appearance = NSAppearance(named: appearance);
   }
   
-  func configureSearchInput(config: WebScriptObject)
-  {
-    let cfg: NSDictionary = convertJSONToDict(config);
-
-    if cfg["actionOnEndEditing"] != nil {
-      self.app.search.sendsActionOnEndEditing = cfg["actionOnEndEditing"] as! Bool;
-    }
-    if cfg["searchStringImmediately"] != nil {
-      self.app.search.sendsSearchStringImmediately = cfg["searchStringImmediately"] as! Bool;
-    }
-    if cfg["wholeSearchString"] != nil {
-      self.app.search.sendsWholeSearchString = cfg["wholeSearchString"] as! Bool;
-    }
-  }
-  
   func setTitle(title: String) -> String
   {
     self.app.window.title = title;
@@ -122,7 +107,6 @@ class JSBridgeExports : NSObject {
     switch aSelector {
     case Selector("on:callback:"): return "on"
     case Selector("off:"): return "off"
-    case Selector("configureSearchInput:"): return "configureSearchInput"
     case Selector("setTitleVisibility:"): return "setTitleVisibility"
     case Selector("isTitleVisible"): return "isTitleVisible"
     case Selector("setAppearance:"): return "setAppearance"
@@ -138,7 +122,6 @@ class JSBridgeExports : NSObject {
     switch selector {
     case Selector("on:callback:"): return false
     case Selector("off:"): return false
-    case Selector("configureSearchInput:"): return false
     case Selector("setTitleVisibility:"): return false
     case Selector("isTitleVisible"): return false
     case Selector("setAppearance:"): return false

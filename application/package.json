@@ -4,7 +4,8 @@
   "description": "SoundWarp frontend application",
   "tasks": [
     "build",
-    "default"
+    "default",
+    "dev"
   ],
   "devDependencies": {
     "babel-eslint": "^4.1.0",

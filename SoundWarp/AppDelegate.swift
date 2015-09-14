@@ -12,26 +12,20 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-  
-  let SEGMENTED_CONTROL_BACK: Int = 0;
-  let SEGMENTED_CONTROL_FORWARD: Int = 1;
 
   @IBOutlet var window: NSWindow!
   @IBOutlet var contentView: NSView!
   @IBOutlet var webview: WebView!
   
-  @IBOutlet var historyNavigation: NSSegmentedControl!
-  @IBOutlet weak var search: NSSearchFieldCell!
-  
   var jsBridge: JSBridge!
   var jsBridgeExports: JSBridgeExports!
   
   override func awakeFromNib() {
-	  self.window.titleVisibility = NSWindowTitleVisibility.Hidden;
+	  self.window.titleVisibility = NSWindowTitleVisibility.Visible;
     self.window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
     self.window.movableByWindowBackground = true;
     
-    self.window.titlebarAppearsTransparent = true;
+    self.window.titlebarAppearsTransparent = false;
     self.window.styleMask |= NSFullSizeContentViewWindowMask;
     
     self.window.makeKeyAndOrderFront(self.window);
@@ -39,8 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     initApp(self);
-
-    self.search.sendsWholeSearchString = true;
   }
 
   func applicationWillTerminate(aNotification: NSNotification) {
@@ -72,18 +64,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       debugPrint("JSBridge: error occured!");
     }
   }
-  
-  @IBAction func processHistoryNavigation(sender: AnyObject) {
-    if (self.historyNavigation.isSelectedForSegment(self.SEGMENTED_CONTROL_BACK)) {
-      self.callJSBridgeEvent("history-back");
-    }
-    if (self.historyNavigation.isSelectedForSegment(self.SEGMENTED_CONTROL_FORWARD)) {
-      self.callJSBridgeEvent("history-forward");
-    }
-  }
 
-  @IBAction func processSearch(sender: AnyObject) {
-    let data = NSDictionary(objects: [self.search.stringValue], forKeys: ["keyword"]);
-    self.callJSBridgeEvent("search-input", data: data);
-  }
 }

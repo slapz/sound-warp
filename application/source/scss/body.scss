@@ -12,3 +12,11 @@ body {
   -webkit-user-drag: none;
   -webkit-font-smoothing: subpixel-antialiased;
 }
+
+body {
+  padding-top: 54px;
+}
+
+.invisible {
+  visibility: hidden;
+}

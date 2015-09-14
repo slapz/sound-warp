@@ -25,6 +25,7 @@ module.exports = function(gulp) {
     `${OUT_PATH}/js/watch.js`,
     `${OUT_PATH}/js/utils.js`,
     `${OUT_PATH}/js/chrome.js`,
+    `${OUT_PATH}/js/btn-toggle.js`,
     `${OUT_PATH}/js/app.js`
   ];
 

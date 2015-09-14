@@ -2,7 +2,7 @@
 
   'use strict';
 
-  if (typeof global.chrome === 'undefined') {
+  if (typeof global.chrome == 'undefined') {
     return false;
   }
 

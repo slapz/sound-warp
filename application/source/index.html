@@ -8,18 +8,67 @@
   <body>
 
     <header role="banner" class="header">
+      <div class="row">
 
-      <div class="header-control header-btn-group">
-        <button type="button" class="header-btn"><i class="i-previous"></i><i class="i-previous"></i></button>
-        <button type="button" class="header-btn"><i class="i-play"></i></button>
-        <button type="button" class="header-btn"><i class="i-next"></i><i class="i-next"></i></button>
+        <div class="col-sm-2">
+          <div class="header-control header-btn-group">
+            <button type="button" class="header-btn"><i class="i-previous"></i><i class="i-previous"></i></button>
+            <button type="button" class="header-btn"><i class="i-play"></i></button>
+            <button type="button" class="header-btn"><i class="i-next"></i><i class="i-next"></i></button>
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="header-control">
+            <input type="range" min="0" max="100" step="5" value="75" class="volume-control">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-2">
+          <button type="button" class="header-btn">Profile</button>
+        </div>
+
       </div>
-
-      <div class="header-control">
-        <input type="range" min="0" max="100" step="5" value="75" class="volume-control">
-      </div>
-
     </header>
+
+    <div class="toolbar">
+      <div class="row">
+
+        <div class="col-sm-4">
+          <div data-toggle="buttons" id="section-switch">
+            <label class="btn active"><input type="radio" name="section" value="stream" autocomplete="off"> Stream</label>
+            <label class="btn"><input type="radio" name="section" value="explore" autocomplete="off"> Explore</label>
+            <label class="btn"><input type="radio" name="section" value="collection" autocomplete="off"> Collection</label>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="invisible" data-section="collection">
+            <button type="button" class="btn">Likes</button>
+            <button type="button" class="btn">Playlists</button>
+            <button type="button" class="btn">Following</button>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="btn-group">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Configure
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
 
     <div class="container"></div>
 
