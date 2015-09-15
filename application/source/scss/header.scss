@@ -121,7 +121,11 @@
 }
 
 .toolbar {
-  @extend .container-fluid;
+  @extend .navbar;
+  @extend .navbar-fixed-top;
+  @extend .navbar-default;
+
+  top: 54px;
   background: #f8f8f8;
   border-bottom: 1px solid $gray-light;
   padding-top: 2px;

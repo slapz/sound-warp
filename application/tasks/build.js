@@ -38,6 +38,12 @@ module.exports = function(gulp) {
     `!${MODULES_PATH}/bootstrap/scss/bootstrap-grid.scss`
   ];
 
+  let fontAwesomeSCSS = [
+    `${LIBS_PATH}/font-awesome-4.4.0/scss/*.scss`,
+    `${LIBS_PATH}/font-awesome-4.4.0/scss/**/*.scss`,
+    `!${LIBS_PATH}/font-awesome-4.4.0/scss/font-awesome.scss`
+  ];
+
   const MINIFY_SOURCES = argv.minify || false;
 
   task('clean', clean(OUT_PATH));
@@ -48,7 +54,8 @@ module.exports = function(gulp) {
   task('deps:bootstrap:fonts', copy(`${MODULES_PATH}/bootstrap/dist/fonts/*`, `${OUT_PATH}/fonts/`));
   task('deps:bootstrap', ['deps:bootstrap:scss', 'deps:bootstrap:js', 'deps:bootstrap:fonts']);
   task('deps:watchjs', copy(`${MODULES_PATH}/watchjs/src/watch.js`, `${OUT_PATH}/js/`));
-  task('deps', ['deps:jquery', 'deps:bootstrap', 'deps:watchjs']);
+  task('deps:font-awesome', copy(fontAwesomeSCSS, `${OUT_PATH}/scss/font-awesome/`));
+  task('deps', ['deps:jquery', 'deps:bootstrap', 'deps:font-awesome', 'deps:watchjs']);
   task('sources:images', copy(`${SOURCE_PATH}/images/*`, `${OUT_PATH}/images`));
   task('sources:scss', copy([`${SOURCE_PATH}/scss/*.scss`, `${SOURCE_PATH}/scss/**/*.scss`], `${OUT_PATH}/scss`));
   task('sources:css', copy(`${SOURCE_PATH}/css/**/*.css`, `${OUT_PATH}/css`));
@@ -71,13 +78,12 @@ module.exports = function(gulp) {
     pattern: /<script(.*)src="([A-Za-z\/\:\.]+)\.js"[^>]*><\/script>/
   }));
   task('inject', gs.sync(['inject:css', 'inject:js']));
-  task('prepare:sources', [
-    'deps',
-    'sources'
-  ]);
+  task('prepare:sources', ['deps', 'sources']);
   task('prepare:fonts', function() {
-    return gulp.src(`${OUT_PATH}/fonts/*.ttf`)
-      .pipe(cssFont64())
+    return gulp.src([
+      `${OUT_PATH}/fonts/*.ttf`,
+      `${LIBS_PATH}/font-awesome-4.4.0/fonts/*.ttf`
+    ]).pipe(cssFont64())
       .pipe(concat('fonts.css'))
       .pipe(gulp.dest(`${OUT_PATH}/css/`));
   });

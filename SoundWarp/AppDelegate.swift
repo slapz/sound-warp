@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var jsBridgeExports: JSBridgeExports!
   
   override func awakeFromNib() {
-	  self.window.titleVisibility = NSWindowTitleVisibility.Visible;
+	  self.window.titleVisibility = NSWindowTitleVisibility.Hidden;
     self.window.appearance = NSAppearance(named: NSAppearanceNameVibrantDark);
     self.window.movableByWindowBackground = true;
     

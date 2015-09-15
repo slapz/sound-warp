@@ -4,6 +4,7 @@ body {
   color: #333;
   padding: 0;
   margin: 0;
+  overflow: hidden !important;
 }
 
 * {
@@ -13,10 +14,19 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-body {
-  padding-top: 54px;
-}
-
 .invisible {
   visibility: hidden;
+}
+
+.viewport {
+  background: #fff;
+  position: absolute;
+  top: 85px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+
+  .viewport-content {
+  }
 }
