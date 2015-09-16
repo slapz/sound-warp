@@ -41,3 +41,23 @@ body {
   .viewport-content {
   }
 }
+
+.connect {
+  position: fixed;
+  z-index: 9999;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2f2f2f;
+  color: #fdfdfd;
+  text-align: center;
+
+  .card {
+    width: 800px;
+    margin: 100px auto 0 auto;
+    border-color: #333;
+    background-color: #444;
+    padding: 50px 0;
+  }
+}
