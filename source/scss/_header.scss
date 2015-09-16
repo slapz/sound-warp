@@ -4,13 +4,16 @@
   @extend .navbar-default;
 
   background: #2f2f2f;
-  border-bottom-color: #9A9A9A;
-  min-height: 38px;
+  border-bottom-color: #fff;
+  height: 44px;
+  padding-top: 0;
+  padding-bottom: 0;
 
   .header-control {
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    height: 44px;
   }
 
   .header-btn-group {
@@ -22,8 +25,8 @@
       padding-bottom: 0;
 
       .header-btn {
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 3px;
+        padding-bottom: 2px;
       }
     }
   }
@@ -33,7 +36,7 @@
     @extend .btn-link;
     @extend .navbar-btn;
 
-    height: 38px;
+    height: 44px;
     padding: 0 10px;
     color: #ccc;
     cursor: default;
@@ -43,39 +46,20 @@
       text-decoration: none;
     }
 
-    >i {
-      display: inline-block;
-      position: relative;
-      cursor: default;
-      width: 0;
-      height: 0;
+    &.playback-control {
+      min-width: 48px;
+      text-align: center;
 
-      &.i-previous,
-      &.i-next,
-      &.i-play {
-        border: 10px solid #4E4D4E;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        top: 2px;
-        margin-right: -10px;
+      .fa {
+        font-size: 24px;
       }
 
-      &.i-previous {
-        border-left-color: transparent;
-        margin-left: -10px;
-        margin-right: 0;
-      }
-
-      &.i-play,
-      &.i-next {
-        border-right-color: transparent;
-      }
-
-      &.i-play {
-        border-width: 14px;
-        top: -2px;
-        left: 10px;
-        margin-right: 0;
+      &:disabled {
+        &,
+        .fa {
+          color: #555;
+          cursor: default;
+        }
       }
     }
   }
@@ -83,8 +67,8 @@
   .volume-control {
     -webkit-appearance: none;
     width: 100px;
-    margin: 0 50px;
-    padding: 0;
+    margin: -3px 50px 0 50px;
+    padding: 20px 0;
     background: transparent;
 
     &:focus {
@@ -126,7 +110,7 @@
   @extend .navbar-default;
 
   top: 54px;
-  background: #f8f8f8;
+  background: #fff;
   border-bottom: 1px solid $gray-light;
   padding-top: 2px;
   padding-bottom: 2px;

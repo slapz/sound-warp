@@ -1,7 +1,3 @@
-# SoundWarp
-SoundWarp is a music player written in Swift and Javascript.
+# SoundWarp app
 
-### TODO
-
-- Implement the application (frontend)
-- Write tests
+This is frontend part of the application.
