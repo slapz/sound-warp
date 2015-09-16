@@ -11,13 +11,11 @@ let gulp = require('gulp');
 let fs = require('fs');
 let gutil = require('gulp-util');
 let packageInfo = JSON.parse(fs.readFileSync(`${BASE_PATH}/package.json`));
-let tasks = [];
+let tasks = [
+  'build', 'dev', 'default'
+];
 
 require(`${TASKS_PATH}/helpers/gutil.js`)(gutil);
-
-if (packageInfo.hasOwnProperty('tasks')) {
-  tasks = packageInfo.tasks;
-}
 
 if (tasks.length === 0) {
   throw new Error('No tasks found!');

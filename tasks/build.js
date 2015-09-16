@@ -19,6 +19,11 @@ module.exports = function(gulp) {
     pipe = fpipe.pipe,
     copy = fpipe.copy;
 
+  let components = [
+    `${SOURCE_PATH}/main.js`,
+    `${SOURCE_PATH}/package.json`
+  ];
+
   let jsSources = [
     `${OUT_PATH}/js/jquery.js`,
     `${OUT_PATH}/js/bootstrap.js`,
@@ -26,6 +31,7 @@ module.exports = function(gulp) {
     `${OUT_PATH}/js/utils.js`,
     `${OUT_PATH}/js/chrome.js`,
     `${OUT_PATH}/js/btn-toggle.js`,
+    `${OUT_PATH}/js/app/*.js`,
     `${OUT_PATH}/js/app.js`
   ];
 
@@ -59,9 +65,10 @@ module.exports = function(gulp) {
   task('sources:images', copy(`${SOURCE_PATH}/images/*`, `${OUT_PATH}/images`));
   task('sources:scss', copy([`${SOURCE_PATH}/scss/*.scss`, `${SOURCE_PATH}/scss/**/*.scss`], `${OUT_PATH}/scss`));
   task('sources:css', copy(`${SOURCE_PATH}/css/**/*.css`, `${OUT_PATH}/css`));
-  task('sources:js', copy(`${SOURCE_PATH}/js/*`, `${OUT_PATH}/js`));
+  task('sources:js', copy([`${SOURCE_PATH}/js/*`, `${SOURCE_PATH}/js/**`], `${OUT_PATH}/js`));
   task('sources:html', copy([`${SOURCE_PATH}/*.html`, `${SOURCE_PATH}/html/*.html`], `${OUT_PATH}`));
-  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html']);
+  task('sources:components', copy(components, `${OUT_PATH}`));
+  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html', 'sources:components']);
   task('preprocess:scss', sass([`${OUT_PATH}/scss/main.scss`], `${OUT_PATH}/css/`));
   task('inject:css', inject({
     target: `${OUT_PATH}/index.html`,
@@ -128,10 +135,10 @@ module.exports = function(gulp) {
     'prepare:sources',
     'prepare:fonts',
     'preprocess:scss',
-    'merge:css',
-    'merge:js',
-    'inject',
-    'minify',
-    'cleanup'
+    //'merge:css',
+    //'merge:js',
+    //'inject',
+    //'minify',
+    //'cleanup'
   ]));
 };

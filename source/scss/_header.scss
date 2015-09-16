@@ -3,11 +3,16 @@
   @extend .navbar-fixed-top;
   @extend .navbar-default;
 
-  background: #2f2f2f;
-  border-bottom-color: #fff;
+  background: #CECECE;
+  border-bottom: 1px solid #AFAFAF;
   height: 44px;
   padding-top: 0;
   padding-bottom: 0;
+
+  &, *:not(button):not(input) {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+  }
 
   .header-control {
     display: inline-block;
@@ -38,12 +43,19 @@
 
     height: 44px;
     padding: 0 10px;
-    color: #ccc;
+    color: #444;
     cursor: default;
 
     &:hover {
-      color: #eee;
+      color: #555;
       text-decoration: none;
+    }
+
+    &:focus,
+    &:active,
+    &:active:focus {
+      outline: none;
+      color: #555;
     }
 
     &.playback-control {
@@ -57,7 +69,7 @@
       &:disabled {
         &,
         .fa {
-          color: #555;
+          color: #999;
           cursor: default;
         }
       }
@@ -86,6 +98,10 @@
       border: none;
     }
 
+    &:focus::-webkit-slider-runnable-track {
+      background: #6C6C6C;
+    }
+
     &::-webkit-slider-thumb {
       box-shadow: 0 0 3px rgba(0,0,0,0.3);
       border: 0;
@@ -97,10 +113,6 @@
       -webkit-appearance: none;
       margin-top: -6px;
     }
-
-    &:focus::-webkit-slider-runnable-track {
-      background: #FFFFFF;
-    }
   }
 }
 
@@ -109,9 +121,9 @@
   @extend .navbar-fixed-top;
   @extend .navbar-default;
 
-  top: 54px;
+  top: 44px;
   background: #fff;
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px solid #AFAFAF;
   padding-top: 2px;
   padding-bottom: 2px;
 
@@ -123,9 +135,14 @@
     background: #fff;
     border-color: #fff;
 
+    &:active,
+    &:focus,
+    &:active:focus,
     &:hover {
-      background: $gray-lighter;
-      border-color: $gray-lighter;
+      background: $brand-highlight;
+      border-color: $brand-highlight;
+      outline: none;
+      box-shadow: none;
     }
   }
 
@@ -137,8 +154,8 @@
   .btn-group.open .dropdown-toggle,
   .btn:active,
   .btn.active {
-    background: $gray-light;
-    border-color: $gray-light;
+    background: $brand-highlight;
+    border-color: $brand-highlight;
   }
 
   .row > div {

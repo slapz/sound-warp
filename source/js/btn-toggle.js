@@ -19,14 +19,4 @@
       .removeClass('invisible');
   });
 
-  $('[data-trigger="playback.play-pause"]').on('click', function($event) {
-    $event.preventDefault();
-    el = $(this).find('.fa');
-    if (el.hasClass('fa-play')) {
-      el.removeClass('fa-play').addClass('fa-pause');
-    } else {
-      el.removeClass('fa-pause').addClass('fa-play');
-    }
-  });
-
 })(window);

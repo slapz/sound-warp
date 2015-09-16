@@ -7,7 +7,7 @@
   /**
    * @param {object} value
    */
-  global.args = function(value) {
+  global.getArgs = function(value) {
     return ArrProto.slice.call(value, 0);
   };
 
