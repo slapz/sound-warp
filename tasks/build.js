@@ -66,9 +66,11 @@ module.exports = function(gulp) {
   task('sources:scss', copy([`${SOURCE_PATH}/scss/*.scss`, `${SOURCE_PATH}/scss/**/*.scss`], `${OUT_PATH}/scss`));
   task('sources:css', copy(`${SOURCE_PATH}/css/**/*.css`, `${OUT_PATH}/css`));
   task('sources:js', copy([`${SOURCE_PATH}/js/*`, `${SOURCE_PATH}/js/**`], `${OUT_PATH}/js`));
-  task('sources:html', copy([`${SOURCE_PATH}/*.html`, `${SOURCE_PATH}/html/*.html`], `${OUT_PATH}`));
+  task('sources:bootstrap', copy([`${SOURCE_PATH}/bootstrap/*`, `${SOURCE_PATH}/bootstrap/**`], `${OUT_PATH}/bootstrap`));
+  task('sources:html-connect', copy([`${SOURCE_PATH}/connect/*.html`], `${OUT_PATH}/connect/`));
+  task('sources:html', copy(`${SOURCE_PATH}/*.html`, `${OUT_PATH}`));
   task('sources:components', copy(components, `${OUT_PATH}`));
-  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html', 'sources:components']);
+  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html', 'sources:html-connect', 'sources:components', 'sources:bootstrap']);
   task('preprocess:scss', sass([`${OUT_PATH}/scss/main.scss`], `${OUT_PATH}/css/`));
   task('inject:css', inject({
     target: `${OUT_PATH}/index.html`,

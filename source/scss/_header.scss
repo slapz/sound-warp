@@ -3,7 +3,7 @@
   @extend .navbar-fixed-top;
   @extend .navbar-default;
 
-  background: #CECECE;
+  background: #f4f4f4;
   border-bottom: 1px solid #AFAFAF;
   height: 44px;
   padding-top: 0;
@@ -103,7 +103,7 @@
     }
 
     &::-webkit-slider-thumb {
-      box-shadow: 0 0 3px rgba(0,0,0,0.3);
+      box-shadow: 0 0 2px rgba(0,0,0,0.3), 0 2px 3px rgba(0,0,0,0.3);
       border: 0;
       height: 16px;
       width: 16px;

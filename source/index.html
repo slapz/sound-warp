@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-sm-2">
-          <button type="button" class="header-btn">Profile</button>
+          <button type="button" class="header-btn hidden" data-var="profile.full_name"></button>
         </div>
 
       </div>
@@ -40,7 +40,6 @@
       <div class="card card-block text-center">
         <h1 class="card-title">Connect with SoundCloud</h1>
         <a role="button" class="btn btn-primary" data-trigger="connect.connect">Connect</a>
-        <a role="button" class="btn btn-secondary-outline" data-trigger="connect.skip">Skip</a>
       </div>
 
     </div>
@@ -56,98 +55,40 @@
           </div>
         </div>
 
-        <div class="col-sm-4">
-          <div class="invisible" data-section="collection">
-            <button type="button" class="btn">Likes</button>
-            <button type="button" class="btn">Playlists</button>
-            <button type="button" class="btn">Following</button>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="btn-group">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Configure
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Another action</a>
+          <div class="col-sm-4">
+            <div class="invisible" data-section="collection">
+              <button type="button" class="btn">Likes</button>
+              <button type="button" class="btn">Playlists</button>
+              <button type="button" class="btn">Following</button>
             </div>
           </div>
 
-        </div>
+          <div class="col-sm-4">
+            <div class="btn-group">
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Configure
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Another action</a>
+              </div>
+            </div>
 
+          </div>
+
+        </div>
       </div>
-    </div>
 
-    <main class="viewport">
-      <div class="viewport-content container-fluid">
+      <main class="viewport">
+        <div class="viewport-content container-fluid">
 
-        <div class="card-columns">
-          <div class="card">
-            <img class="card-img-top" src="http://electron.atom.io/images/electron-icon.svg" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">Card title that wraps to a new line</h4>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-          <div class="card card-block">
-            <blockquote class="card-blockquote">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <footer>
-                <small class="text-muted">
-                  Someone famous in <cite title="Source Title">Source Title</cite>
-                </small>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="http://electron.atom.io/images/electron-icon.svg" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card card-block card-inverse card-primary text-center">
-            <blockquote class="card-blockquote">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-              <footer>
-                <small>
-                  Someone famous in <cite title="Source Title">Source Title</cite>
-                </small>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="card card-block text-center">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-          <div class="card">
-            <img class="card-img" src="http://electron.atom.io/images/electron-icon.svg" alt="Card image">
-          </div>
-          <div class="card card-block text-right">
-            <blockquote class="card-blockquote">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <footer>
-                <small class="text-muted">
-                  Someone famous in <cite title="Source Title">Source Title</cite>
-                </small>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="card card-block">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
+          <h1>Hello World!</h1>
 
       </div>
     </main>
 
+    <script src="https://connect.soundcloud.com/sdk-2.0.0.js"></script>
     <script src="./js/jquery.js"></script><script>/* jQuery fix */ window.$ = window.jQuery = window.jQuery || module.exports;</script>
     <script src="./js/bootstrap.js"></script>
     <script src="./js/watch.js"></script>

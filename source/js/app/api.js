@@ -1,62 +1,32 @@
 'use strict';
 
 module.exports = function() {
-  var token = null,
-    api = {
-      SC: require('node-soundcloud')
+  var api = {
+      SC: require(__dirname + '/soundcloud')
     };
 
-  api.init = function() {
+  api.init = function(token) {
     var config = require(__dirname + '/config').call(this);
-    if (token !== null) {
+    if (typeof token !== 'undefined') {
       config.accessToken = token;
     }
     api.SC.init(config);
   };
 
-  api.connect = function() {
-    api.init();
+  api.connect = function(callback) {
 
-    var remote = require('remote');
-    var BrowserWindow = remote.require('browser-window');
-    var authWindow = new BrowserWindow({
-      'minWidth': 400,
-      'width': 400,
-      'minHeight': 600,
-      'height': 600,
-      'resizable': false,
-      'center': true,
-      'show': false,
-      'always-on-top': true
+    // remote.getGlobal('accessToken')
+
+    var connectWindow = window.open(api.SC.getConnectUrl(), 'connect', 'width=400, height=600, min-width=400, min-height=600, resizable=false');
+    watch(connectWindow, 'closed', function() {
+      api.init(window.remote.getGlobal('accessToken'));
+      callback();
     });
-    authWindow.on('closed', function() {
-      authWindow = null;
-    });
-    authWindow.loadUrl(api.SC.getConnectUrl());
-    authWindow.show();
-    remote.require('app').dock.bounce();
-  };
-
-  api.authorize = function(code) {
-    api.SC.authorize(code, function(err, accessToken) {
-      if (err) {
-        throw err;
-      }
-      api.setToken(accessToken);
-    });
-  };
-
-  api.setToken = function(value) {
-    token = value;
-  };
-
-  api.getToken = function() {
-    return token;
   };
 
   api.url = function(url) {
     return url + (url.indexOf('?') > -1 ? '&' : '?')
-      + 'client_id=' + api.SC.clientId;
+      + 'client_id=' + api.SC.clientId + '&oauth_token=' + api.SC.accessToken;
   };
 
   return api;

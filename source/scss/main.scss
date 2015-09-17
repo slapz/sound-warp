@@ -15,12 +15,12 @@
   font-family: fontawesome-webfont !important;
 }
 
-// Bootstrap core variables and mixins
-@import "./bootstrap/variables";
-@import "./bootstrap/mixins";
-
 // Overwrite variables
 @import "./variables";
+
+// Bootstrap core variables and mixins
+//@import "./bootstrap/variables";
+@import "./bootstrap/mixins";
 
 // Bootstrap reset and dependencies
 @import "./bootstrap/normalize";
