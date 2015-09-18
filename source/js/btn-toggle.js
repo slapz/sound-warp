@@ -13,10 +13,10 @@
 
   $('#section-switch .btn').on('click', function($event) {
     $event.preventDefault();
-    $('[data-section]').addClass('invisible');
+    $('[data-section]').addClass('hidden');
     $('[data-section="'+$(this)
       .find('input:radio').val()+'"]')
-      .removeClass('invisible');
+      .removeClass('hidden');
   });
 
 })(window);

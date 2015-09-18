@@ -30,4 +30,22 @@
     return null;
   };
 
+  global.setSrc = function(selector, value) {
+    var el = $('[data-src-var="'+selector+'"]');
+    if (el.length > 0) {
+      el.attr('src', value);
+      el.removeClass('hidden');
+      return true;
+    }
+    return false;
+  };
+
+  global.getSrc = function(selector) {
+    var el = $('[data-src-var="'+selector+'"]');
+    if (el.length > 0) {
+      return el.attr('src');
+    }
+    return null;
+  };
+
 })(window);

@@ -2,10 +2,9 @@
 
 module.exports = function(app) {
 
-  app.api.SC.get('/me', function(err, profile) {
-    if (err) throw err;
-    console.log(profile);
-    setVar('profile.full_name', profile.full_name);
+  app.api.SC.get('/me', function(profile) {
+    setVar('profile.username', profile.full_name || profile.username);
+    setSrc('profile.avatar_url', profile.avatar_url);
   });
 
 };

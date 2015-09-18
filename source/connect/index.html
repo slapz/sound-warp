@@ -4,10 +4,16 @@
     <title>Connecting...</title>
   </head>
   <body>
-    <script type="text/javascript">
-      setTimeout(function() {
-        window.close();
-      }, 1000);
+    <script>
+      (function(win) {
+        setTimeout(function() {
+          var data = {
+              location: window.location.href
+            },
+            message = JSON.stringify(data);
+          window.opener.postMessage(message);
+        }, 100);
+      })(window);
     </script>
   </body>
 </html>

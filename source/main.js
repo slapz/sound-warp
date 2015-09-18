@@ -36,7 +36,7 @@ app.on('ready', function() {
 
   /* connect://soundcloud */
   protocol.registerFileProtocol('connect', function(req, callback) {
-    global.accessToken = req.url.substring(req.url.indexOf('?code=') + 6).replace(/\#$/, '');
+    global.SOUNDCLOUD_CONNECT_URL = req.url;
     callback(path.normalize(__dirname + '/connect/index.html'));
   }, function(error) {
     if (error) console.error('Failed to register protocol "connect":', error);

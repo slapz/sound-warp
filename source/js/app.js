@@ -15,7 +15,9 @@
 
     $('[data-trigger="connect.connect"]').on('click', function($event) {
       $event.preventDefault();
-      app.api.connect(function() {
+      app.api.connect(function(err) {
+        if (err) throw err;
+
         connectOverlay.remove();
 
         initProfile(app);
