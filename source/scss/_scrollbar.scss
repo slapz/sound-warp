@@ -4,15 +4,15 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: #ddd;
+    background: #343434;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background: #444;
+    background: $gray-dark;
 
     &:window-inactive {
-      background: #555;
+      background: $gray;
     }
   }
 }

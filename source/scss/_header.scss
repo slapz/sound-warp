@@ -3,8 +3,8 @@
   @extend .navbar-fixed-top;
   @extend .navbar-default;
 
-  background: #f4f4f4;
-  border-bottom: 1px solid #AFAFAF;
+  background: #343434;
+  border-bottom: 1px solid #444;
   height: 44px;
   padding-top: 0;
   padding-bottom: 0;
@@ -16,6 +16,7 @@
 
   .header-control {
     display: inline-block;
+    float: left;
     padding-top: 3px;
     padding-bottom: 2px;
     height: 44px;
@@ -43,11 +44,11 @@
 
     height: 44px;
     padding: 0 10px;
-    color: #444;
+    color: $gray-light;
     cursor: default;
 
     &:hover {
-      color: #555;
+      color: $gray-lighter;
       text-decoration: none;
     }
 
@@ -55,7 +56,8 @@
     &:active,
     &:active:focus {
       outline: none;
-      color: #555;
+      color: $gray-light;
+      text-decoration: none;
     }
 
     &.playback-control {
@@ -69,16 +71,24 @@
       &:disabled {
         &,
         .fa {
-          color: #999;
+          color: $gray-light;
           cursor: default;
         }
       }
     }
   }
 
+  .avatar-img {
+    margin: 4px 0;
+    width: 30px;
+    height: 30px;
+  }
+
   .volume-control {
     -webkit-appearance: none;
-    width: 100px;
+    min-width: 60px;
+    max-width: 110px;
+    width: 75px;
     margin: -3px 50px 0 50px;
     padding: 20px 0;
     background: transparent;
@@ -122,8 +132,8 @@
   @extend .navbar-default;
 
   top: 44px;
-  background: #fff;
-  border-bottom: 1px solid #AFAFAF;
+  background: #343434;
+  border-bottom: 1px solid #444;
   padding-top: 2px;
   padding-bottom: 2px;
 
@@ -132,17 +142,19 @@
     @extend .btn-sm;
 
     cursor: default;
-    background: #fff;
-    border-color: #fff;
+    background: #343434;
+    border-color: #343434;
+    color: $gray-light;
 
     &:active,
     &:focus,
     &:active:focus,
     &:hover {
-      background: $brand-highlight;
-      border-color: $brand-highlight;
+      background: #222;
+      border-color: #222;
       outline: none;
       box-shadow: none;
+      color: $gray-light;
     }
   }
 
@@ -154,8 +166,10 @@
   .btn-group.open .dropdown-toggle,
   .btn:active,
   .btn.active {
-    background: $brand-highlight;
-    border-color: $brand-highlight;
+    background: #222;
+    border-color: #222;
+    color: $gray-light;
+    text-decoration: none;
   }
 
   .row > div {
@@ -178,4 +192,22 @@
     margin-top: 3px;
   }
 
+}
+
+.round-rect {
+  border: 1px solid $gray-dark;
+  background: $gray;
+  height: 40px;
+  margin: 2px 0;
+  border-radius: 3px;
+  color: $gray-light;
+
+  .text-row {
+    font-size: 80%;
+    font-weight: bold;
+  }
+
+  .sub-text-row {
+    font-size: 70%;
+  }
 }

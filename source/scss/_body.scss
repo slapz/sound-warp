@@ -1,7 +1,7 @@
 html,
 body {
-  background: #fff;
-  color: #333;
+  background: #343434;
+  color: $gray-light;
   padding: 0;
   margin: 0;
   overflow: hidden !important;
@@ -30,7 +30,7 @@ body {
 }
 
 .viewport {
-  background: #fff;
+  background: #343434;
   position: absolute;
   top: 80px;
   left: 0;
@@ -49,15 +49,15 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #2f2f2f;
-  color: #fdfdfd;
+  background: #343434;
+  color: $gray-light;
   text-align: center;
 
   .card {
     width: 800px;
     margin: 100px auto 0 auto;
-    border-color: #333;
-    background-color: #444;
+    border-color: $gray-dark;
+    background-color: $gray;
     padding: 50px 0;
 
     .card-title {
