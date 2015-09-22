@@ -32,11 +32,10 @@ body {
 .viewport {
   background: #343434;
   position: absolute;
-  top: 80px;
+  top: 44px;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-y: scroll;
 
   .viewport-content {
   }
@@ -51,17 +50,20 @@ body {
   bottom: 0;
   background: #343434;
   color: $gray-light;
-  text-align: center;
 
-  .card {
+  .round-rect {
     width: 800px;
     margin: 100px auto 0 auto;
-    border-color: $gray-dark;
-    background-color: $gray;
     padding: 50px 0;
+    height: auto;
+    text-align: center;
 
-    .card-title {
+    .title {
       margin-bottom: 50px;
     }
   }
+}
+
+.playback-current {
+  background-color: #555;
 }

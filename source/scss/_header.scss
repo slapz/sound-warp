@@ -71,7 +71,7 @@
       &:disabled {
         &,
         .fa {
-          color: $gray-light;
+          color: #444;
           cursor: default;
         }
       }
@@ -197,17 +197,99 @@
 .round-rect {
   border: 1px solid $gray-dark;
   background: $gray;
-  height: 40px;
-  margin: 2px 0;
+  box-shadow: 0 0 1px lighten($gray, 40%) inset;
+  margin: 0;
   border-radius: 3px;
   color: $gray-light;
+  position: relative;
+  text-align: left;
 
-  .text-row {
-    font-size: 80%;
-    font-weight: bold;
+  .artwork {
+    background: #444;
+    display: inline-block;
+
+    &,
+    img {
+      width: 43px;
+      height: 43px;
+    }
   }
 
-  .sub-text-row {
-    font-size: 70%;
+  .display-text {
+    position: absolute;
+    top: 0;
+    left: 43px;
+    right: 0;
+    bottom: 3px;
+    text-align: center;
+
+    .text-row {
+      font-size: 80%;
+      font-weight: bold;
+    }
+
+    .sub-text-row {
+      font-size: 70%;
+    }
+
+    .text-row,
+    .sub-text-row {
+      position: relative;
+      white-space: nowrap;
+      padding: 0 5px;
+      height: 20px;
+      line-height: 20px;
+    }
   }
+
+  .playback-progress {
+    display: block;
+    height: 3px;
+    position: absolute;
+    left: 43px;
+    top: auto;
+    bottom: 0;
+    background-color: #444;
+    right: 0;
+    border-radius: 3px;
+    overflow: hidden;
+
+    .progress-bar {
+      display: block;
+      width: 0%;
+      height: 3px;
+      background-color: lighten($gray, 15%);
+    }
+  }
+}
+
+.header {
+  .round-rect {
+    overflow: hidden;
+    border-radius: 0;
+    height: 43px;
+    border: 0;
+    box-shadow: none;
+    margin-left: -43px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.marquee {
+  white-space: nowrap;
+  padding-left: 10px;
+  padding-right: 10px;
+  animation-name: marquee;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
 }

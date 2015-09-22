@@ -42,9 +42,26 @@ module.exports = function() {
     api.SC.connect(fn);
   };
 
-  api.url = function(url) {
-    return url + (url.indexOf('?') > -1 ? '&' : '?')
-      + 'client_id=' + api.SC.clientId + '&oauth_token=' + api.SC.accessToken;
+  api.URL_CLIENT = 1;
+  api.URL_TOKEN = 2;
+  api.URL_MIXED = 3;
+
+  api.url = function(url, type) {
+    url = url + (url.indexOf('?') > -1 ? '&' : '?');
+    switch (type) {
+      case 1:
+      default:
+        url = url + 'client_id=' + api.SC.options.client_id;
+        break;
+      case 2:
+        url = url + 'oauth_token=' + api.SC.accessToken;
+        break;
+      case 3:
+        url = url + 'client_id=' + api.SC.options.client_id;
+        url = url + '&oauth_token=' + api.SC.accessToken;
+        break;
+    }
+    return url;
   };
 
   return api;

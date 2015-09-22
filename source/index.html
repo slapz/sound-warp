@@ -24,9 +24,18 @@
 
         <div class="col-sm-4">
 
-          <div class="round-rect text-center">
-            <div class="text-row" data-var="display.main-row"></div>
-            <div class="sub-text-row hidden" data-var="display.sub-row"></div>
+          <div class="round-rect display">
+            <!--div class="text-row marquee" data-var="display.main-row"></div-->
+            <div class="artwork">
+              <img src="" class="hidden" data-src-var="display.artwork" />
+            </div>
+            <div class="display-text">
+              <div class="text-row" data-var="display.main-row"></div>
+              <div class="sub-text-row" data-var="display.sub-row"></div>
+            </div>
+            <div class="playback-progress hidden" data-trigger="playback.progress">
+              <div class="progress-bar"></div>
+            </div>
           </div>
 
         </div>
@@ -50,8 +59,8 @@
 
     <div data-section="connect" class="connect" role="banner">
 
-      <div class="card card-block text-center">
-        <h1 class="card-title">Connect with SoundCloud</h1>
+      <div class="round-rect">
+        <h1>Connect with SoundCloud</h1>
         <a role="button" class="btn btn-primary" data-trigger="connect.connect">Connect</a>
       </div>
 
@@ -82,7 +91,22 @@
     </div>
 
     <main class="viewport">
-      <div class="viewport-content container-fluid">
+      <div class="viewport-content">
+
+        <table class="table table-sm table-inverse">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-track-id="224854996"><td>Lush &amp; Simon - The Universe [OUT NOW]</td><td>02:05</td></tr>
+            <tr data-track-id="224858030"><td>Never Say Die Records – 501 - Infinity</td><td>03:58</td></tr>
+            <tr data-track-id="223783026"><td>SUBJEKT – N'to - Fading Stars [OUT NOW]</td><td>02:31</td></tr>
+          </tbody>
+        </table>
+
       </div>
     </main>
 
