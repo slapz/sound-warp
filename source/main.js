@@ -46,7 +46,7 @@ app.on('ready', function() {
     'width': 1050,
     'min-width': 1050,
     'height': 800,
-    'min-height': 800
+    'min-height': 200
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');

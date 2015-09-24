@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="utf-8">
+<!--html lang="utf-8" class="light"-->
+<html lang="utf-8" class="unified-toolbar">
+<!--html lang="utf-8"-->
   <head>
     <meta charset="utf-8">
     <title>SoundWarp</title>
@@ -13,9 +15,9 @@
 
         <div class="col-sm-4">
           <div class="header-control header-btn-group">
-            <button type="button" class="header-btn playback-control" data-trigger="playback.backward" disabled><i class="fa fa-backward"></i></button>
+            <button type="button" class="header-btn playback-control" data-trigger="playback.previous" disabled><i class="fa fa-backward"></i></button>
             <button type="button" class="header-btn playback-control" data-trigger="playback.playPause" disabled><i class="fa fa-play"></i></button>
-            <button type="button" class="header-btn playback-control" data-trigger="playback.forward" disabled><i class="fa fa-forward"></i></button>
+            <button type="button" class="header-btn playback-control" data-trigger="playback.next" disabled><i class="fa fa-forward"></i></button>
           </div>
           <div class="header-control">
             <input type="range" min="0" max="1" step="0.1" value="0.75" class="volume-control" data-trigger="playback.volume">
@@ -43,14 +45,15 @@
         <div class="col-sm-4">
           <div class="text-right">
             <img src="" class="img-circle hidden avatar-img" data-src-var="profile.avatar_url">
-            <div class="btn-group">
+            <button type="button" class="header-btn hidden" data-var="profile.username"></button>
+            <!--div class="btn-group">
               <button type="button" class="header-btn hidden dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-var="profile.username"></button>
               <div class="dropdown-menu dropdown-menu-right">
                 <a href="#" class="dropdown-item">Subscription</a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">Sign out</a>
               </div>
-            </div>
+            </div-->
           </div>
         </div>
 
@@ -71,18 +74,18 @@
 
         <div class="col-sm-4">
           <div data-toggle="buttons" id="section-switch">
-            <label class="btn active"><input type="radio" name="section" value="stream" autocomplete="off" title="Stream"><i class="fa fa-headphones"></i></label>
-            <label class="btn"><input type="radio" name="section" value="explore" autocomplete="off" title="Explore"><i class="fa fa-globe"></i></label>
-            <label class="btn"><input type="radio" name="section" value="collection" autocomplete="off" title="Collection"><i class="fa fa-list"></i></label>
+            <label class="btn active"><input type="radio" name="section" value="stream" autocomplete="off" title="Stream"><i class="fa fa-headphones"></i> Stream</label>
+            <!--label class="btn"><input type="radio" name="section" value="explore" autocomplete="off" title="Explore"><i class="fa fa-globe"></i></label>
+            <label class="btn"><input type="radio" name="section" value="collection" autocomplete="off" title="Collection"><i class="fa fa-list"></i></label-->
           </div>
         </div>
 
         <div class="col-sm-4">
-          <div class="hidden" data-section="collection">
+          <!--div class="hidden" data-section="collection">
             <button type="button" class="btn">Likes</button>
             <button type="button" class="btn">Playlists</button>
             <button type="button" class="btn">Following</button>
-          </div>
+          </div-->
         </div>
 
         <div class="col-sm-4"></div>
@@ -91,23 +94,7 @@
     </div>
 
     <main class="viewport">
-      <div class="viewport-content">
-
-        <table class="table table-sm table-inverse">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-track-id="224854996"><td>Lush &amp; Simon - The Universe [OUT NOW]</td><td>02:05</td></tr>
-            <tr data-track-id="224858030"><td>Never Say Die Records – 501 - Infinity</td><td>03:58</td></tr>
-            <tr data-track-id="223783026"><td>SUBJEKT – N'to - Fading Stars [OUT NOW]</td><td>02:31</td></tr>
-          </tbody>
-        </table>
-
-      </div>
+      <div class="viewport-content" data-section="stream"></div>
     </main>
 
     <script src="./js/jquery.js"></script><script>/* jQuery fix */ window.$ = window.jQuery = window.jQuery || module.exports;</script>

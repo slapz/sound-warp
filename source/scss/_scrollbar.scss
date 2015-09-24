@@ -4,12 +4,12 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: #343434;
+    background: #222;
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background: $gray-dark;
+    border-radius: 0;
+    background: #444;
 
     &:window-inactive {
       background: $gray;

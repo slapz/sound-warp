@@ -4,27 +4,12 @@ module.exports = function() {
 
   var player = {},
     playbackControls = {
-      backward: '[data-trigger="playback.backward"]',
+      previous: '[data-trigger="playback.previous"]',
       playPause: '[data-trigger="playback.playPause"]',
-      forward: '[data-trigger="playback.forward"]',
+      next: '[data-trigger="playback.next"]',
       volume: '[data-trigger="playback.volume"]',
       progress: '[data-trigger="playback.progress"]'
     };
-
-  function _convertTime(seconds) {
-    var hour = 60 * 60;
-    function _leadingZero(val) {
-      if (val < 10) {
-        val = '0' + val;
-      }
-      return val;
-    }
-    return {
-      hours: _leadingZero(Math.floor(seconds / hour)),
-      minutes: _leadingZero(Math.floor(seconds % hour / 60)),
-      seconds: _leadingZero(Math.ceil(seconds % hour % 60))
-    };
-  }
 
   player.audio = null;
   player.controls = {};
@@ -37,25 +22,6 @@ module.exports = function() {
     player.audio = new Audio();
     var $audio = $(player.audio);
 
-    player.controls.playPause.on('click', function($event) {
-      if ($event.isDefaultPrevented() === false) {
-        $event.preventDefault();
-      }
-
-      if (player.audio !== null) {
-        if (player.audio.paused) {
-          player.audio.play();
-        } else {
-          player.audio.pause();
-        }
-      }
-    });
-
-    player.controls.volume.on('change', function($event) {
-      $event.preventDefault();
-      player.audio.volume = $(this).val();
-    });
-
     player.on = function() {
       return $audio.on.apply($audio, getArgs(arguments));
     };
@@ -65,25 +31,88 @@ module.exports = function() {
     };
   };
 
+  player.play = function() {
+    if (player.audio !== null) {
+      if (player.audio.paused) {
+        player.audio.play();
+      } else {
+        player.audio.pause();
+      }
+    }
+  };
+
+  player.isPlaying = function() {
+    return player.audio && player.audio.paused === false;
+  };
+
+  player.pause = function() {
+    player.audio.pause();
+  };
+
+  player.stop = function() {
+    player.audio.pause();
+    player.audio.currentTime = 0;
+  };
+
+  player.setVolume = function(value) {
+    player.audio.volume = value;
+  };
+
+  player.getVolume = function() {
+    return player.audio.volume;
+  };
+
+  player.convertTime = function(seconds) {
+    var hour = 60 * 60;
+    function _leadingZero(val) {
+      if (val < 10) {
+        val = '0' + val;
+      }
+      return val;
+    }
+    return {
+      hours: _leadingZero(Math.floor(seconds / hour)),
+      minutes: _leadingZero(Math.floor(seconds % hour / 60)),
+      seconds: _leadingZero(Math.ceil(seconds % hour % 60))
+    };
+  };
+
+  player.displayTime = function(timeObj) {
+    var output = '';
+
+    ['hours', 'minutes', 'seconds'].forEach(function(key) {
+      if (timeObj.hasOwnProperty(key) === false) {
+        throw new TypeError('Invalid arguments');
+      }
+    });
+
+    if (timeObj.hours > 0) {
+      output = timeObj.hours + ':';
+    }
+    output += timeObj.minutes + ':';
+    output += timeObj.seconds;
+
+    return output;
+  };
+
   player.load = function(track) {
     if (player.audio === null) {
       player.init();
     }
 
-    if (!track.streamable) {
-      app.display.setTitle('Track could not be loaded!');
-      return false;
+    if (track.isStreamable()) {
+      app.display.setTitle(track.getFullTitle());
+      document.title = track.getFullTitle() + ' – SoundWarp';
+
+      var trackSource = app.api.url(track.getStreamUrl(), app.api.URL_CLIENT);
+      this.setSource(trackSource);
+
+      app.display.setArtwork(track.getArtwork(app.Track.ARTWORK_47));
+      return true;
     }
 
-    var user = (track.user.full_name || track.user.username),
-      title = (user + ' – ' || '') + track.title;
-    app.display.setTitle(title);
-    document.title = title + ' – SoundWarp';
-
-    var trackSource = app.api.url(track.stream_url, app.api.URL_CLIENT);
-    this.setSource(trackSource);
-
-    app.display.setArtwork(track.artwork_url.replace('-large', '-badge'));
+    app.display.setTitle('Track could not be loaded!');
+    return false;
   };
 
   player.setSource = function(src) {
@@ -112,25 +141,11 @@ module.exports = function() {
 
     player.on('timeupdate', function() {
       var currentTime = player.audio.currentTime,
-        _currentTime = _convertTime(currentTime),
-        strCurrentTime = '',
         duration = player.audio.duration,
-        _duration = _convertTime(duration),
-        strDuration = '';
+        _currentTime = player.displayTime(player.convertTime(currentTime)),
+        _duration = player.displayTime(player.convertTime(duration));
 
-      if (_currentTime.hours > 0) {
-        strCurrentTime = _currentTime.hours + ':';
-      }
-      strCurrentTime += _currentTime.minutes + ':';
-      strCurrentTime += _currentTime.seconds;
-
-      if (_duration.hours > 0) {
-        strDuration = _duration.hours + ':';
-      }
-      strDuration += _duration.minutes + ':';
-      strDuration += _duration.seconds;
-
-      app.display.setSubTitle(strCurrentTime + ' / ' + strDuration);
+      app.display.setSubTitle(_currentTime + ' / ' + _duration);
 
       if (duration > 0) {
         player.controls.progress

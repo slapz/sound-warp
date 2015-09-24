@@ -9,7 +9,7 @@ body {
 
 body {
   min-width: 1024px;
-  min-height: 800px;
+  min-height: 200px;
   -webkit-app-region: no-drag;
 }
 
@@ -32,10 +32,12 @@ body {
 .viewport {
   background: #343434;
   position: absolute;
+  /* top: 80px; */
   top: 44px;
   left: 0;
   right: 0;
   bottom: 0;
+  overflow: auto;
 
   .viewport-content {
   }
@@ -62,8 +64,4 @@ body {
       margin-bottom: 50px;
     }
   }
-}
-
-.playback-current {
-  background-color: #555;
 }

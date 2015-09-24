@@ -8,6 +8,7 @@
   height: 44px;
   padding-top: 0;
   padding-bottom: 0;
+  z-index: 1031;
 
   &, *:not(button):not(input) {
     -webkit-user-select: none;
@@ -122,6 +123,50 @@
       cursor: default;
       -webkit-appearance: none;
       margin-top: -6px;
+    }
+  }
+}
+
+html.unified-toolbar {
+  .header {
+    background: #DAD6D9;
+    border-top: 1px solid $gray-lightest;
+    border-bottom: 1px solid #222;
+
+    .header-btn {
+      &,
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        color: $gray-dark;
+      }
+      &.playback-control {
+        &:disabled {
+          &,
+          .fa {
+            color: #888;
+          }
+        }
+      }
+    }
+    .round-rect {
+      color: $gray-dark;
+      background: #eee;
+      border-color: #ddd;
+      height: 42px;
+
+      .artwork {
+        background: #ddd;
+      }
+
+      .playback-progress {
+        background-color: $gray-light;
+
+        .progress-bar {
+          background-color: $brand-highlight;
+        }
+      }
     }
   }
 }

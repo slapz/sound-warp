@@ -1,0 +1,36 @@
+.playlist {
+
+  thead {
+    th {
+      border-top-width: 0;
+      font-size: 12px;
+      background: linear-gradient(to bottom, #222, #343434);
+      border-bottom: 1px solid #444;
+    }
+  }
+
+  tbody {
+    tr {
+      &.now-playing {
+        background-color: #555;
+      }
+
+      td {
+        vertical-align: middle;
+        border-top-color: #444;
+
+        .artwork {
+          width: 67px;
+          height: 67px;
+          background: #444;
+          border: 1px solid #555;
+          text-align: center;
+          color: #222;
+          font-size: 18px;
+          line-height: 67px;
+          box-shadow: 2px 2px 6px -2px #000;
+        }
+      }
+    }
+  }
+}
