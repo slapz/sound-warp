@@ -255,18 +255,19 @@ html.unified-toolbar {
 
     &,
     img {
-      width: 43px;
-      height: 43px;
+      width: 42px;
+      height: 42px;
     }
   }
 
   .display-text {
     position: absolute;
     top: 0;
-    left: 43px;
+    left: 42px;
     right: 0;
     bottom: 3px;
     text-align: center;
+    overflow: hidden;
 
     .text-row {
       font-size: 80%;
@@ -291,26 +292,47 @@ html.unified-toolbar {
     display: block;
     height: 3px;
     position: absolute;
-    left: 43px;
+    left: 42px;
     top: auto;
     bottom: 0;
     background-color: #444;
     right: 0;
-    border-radius: 3px;
-    overflow: hidden;
+    border-radius: 0;
 
     .progress-bar {
       display: block;
       width: 0%;
       height: 3px;
+      position: relative;
       background-color: lighten($gray, 15%);
+
+      .seek-handle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: -4px;
+        right: -4px;
+        box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.7), 0 2px 12px rgba(0, 0, 0, 0.3);
+        border-radius: 100%;
+        cursor: default;
+        background: linear-gradient(to bottom, #f50, #d00);
+        transition-property: transform, opacity;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+        transform: scale(0.5);
+        opacity: 0;
+      }
     }
+  }
+
+  &:hover .playback-progress .seek-handle {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
 .header {
   .round-rect {
-    overflow: hidden;
     border-radius: 0;
     height: 43px;
     border: 0;
