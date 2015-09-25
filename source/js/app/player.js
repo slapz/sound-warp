@@ -3,16 +3,18 @@
 module.exports = function() {
 
   var player = {},
+    Progress = require(__dirname + '/progress'),
     playbackControls = {
       previous: '[data-trigger="playback.previous"]',
       playPause: '[data-trigger="playback.playPause"]',
       next: '[data-trigger="playback.next"]',
-      volume: '[data-trigger="playback.volume"]',
-      progress: '[data-trigger="playback.progress"]'
-    };
+      volume: '[data-trigger="playback.volume"]'
+    },
+    _tempVolume = 0;
 
   player.audio = null;
   player.controls = {};
+  player.progress = null;
 
   player.init = function() {
     Object.keys(playbackControls).forEach(function(key) {
@@ -29,6 +31,13 @@ module.exports = function() {
     player.off = function() {
       return $audio.off.apply($audio, getArgs(arguments));
     };
+
+    player.progress = new Progress({
+      el: $('[data-trigger="playback.progress"]'),
+      value: 0,
+      maxValue: 100,
+      editable: true
+    });
   };
 
   player.play = function() {
@@ -60,6 +69,16 @@ module.exports = function() {
 
   player.getVolume = function() {
     return player.audio.volume;
+  };
+
+  player.mute = function() {
+    _tempVolume = player.audio.volume;
+    player.audio.volume = 0;
+  };
+
+  player.unmute = function() {
+    player.audio.volume = _tempVolume;
+    _tempVolume = 0;
   };
 
   player.convertTime = function(seconds) {
@@ -122,7 +141,8 @@ module.exports = function() {
 
     player.audio.src = src;
     player.audio.load();
-    player.controls.progress.removeClass('hidden');
+
+    player.progress.setValue(0);
 
 /* @TODO: Implement loading progress indicator
     player.on('progress', function() {
@@ -139,20 +159,31 @@ module.exports = function() {
     });
 */
 
-    player.on('timeupdate', function() {
-      var currentTime = player.audio.currentTime,
-        duration = player.audio.duration,
-        _currentTime = player.displayTime(player.convertTime(currentTime)),
-        _duration = player.displayTime(player.convertTime(duration));
-
-      app.display.setSubTitle(_currentTime + ' / ' + _duration);
-
-      if (duration > 0) {
-        player.controls.progress
-          .find('.progress-bar')
-          .css('width', ((currentTime / duration) * 100) + '%');
-      }
+    player.on('load loadeddata', function() {
+      player.progress.setMaxValue(player.audio.duration);
+      player.progress.refresh();
     });
+
+    player.on('timeupdate', function() {
+      player.progress.setValue(player.audio.currentTime);
+      player.progress.refresh();
+
+      app.display.setSubTitle([
+        player.displayTime(player.convertTime(player.audio.currentTime)),
+        player.displayTime(player.convertTime(player.audio.duration))
+      ].join(' / '));
+    });
+  };
+
+  player.seekTo = function(time) {
+    if (player.audio === null) {
+      player.init();
+    }
+
+    if (time >= 0 && time <= player.audio.duration) {
+      player.audio.currentTime = time;
+    }
+    return this;
   };
 
   return player;

@@ -104,7 +104,6 @@
       cursor: default;
       box-shadow: 0 0 2px #8E8E8E;
       background: #6C6C6C;
-      box-shadow: none;
       border-radius: 4px;
       border: none;
     }
@@ -158,14 +157,6 @@ html.unified-toolbar {
 
       .artwork {
         background: #ddd;
-      }
-
-      .playback-progress {
-        background-color: $gray-light;
-
-        .progress-bar {
-          background-color: $brand-highlight;
-        }
       }
     }
   }
@@ -290,44 +281,81 @@ html.unified-toolbar {
 
   .playback-progress {
     display: block;
-    height: 3px;
     position: absolute;
     left: 42px;
     top: auto;
     bottom: 0;
-    background-color: #444;
     right: 0;
     border-radius: 0;
 
-    .progress-bar {
-      display: block;
-      width: 0%;
-      height: 3px;
-      position: relative;
-      background-color: lighten($gray, 15%);
-
-      .seek-handle {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        top: -4px;
-        right: -4px;
-        box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.7), 0 2px 12px rgba(0, 0, 0, 0.3);
-        border-radius: 100%;
-        cursor: default;
-        background: linear-gradient(to bottom, #f50, #d00);
-        transition-property: transform, opacity;
-        transition-duration: 0.2s;
-        transition-timing-function: linear;
-        transform: scale(0.5);
-        opacity: 0;
-      }
+    .progress-value {
+      width: 5%;
+      height: 5px;
+      background: $brand-primary;
+      position: absolute;
+      top: auto;
+      bottom: 0;
     }
-  }
 
-  &:hover .playback-progress .seek-handle {
+    .seek-handle {
+      box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.7), 0 2px 12px rgba(0, 0, 0, 0.3);
+      width: 4px;
+      height: 10px;
+      background: #900;
+      cursor: default;
+      -webkit-appearance: none;
+      margin: -4px 0 0 0;
+      position: absolute;
+      right: 0;
+    }
+
+    /*& > .range {
+      -webkit-appearance: none;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      position: relative;
+      top: 6px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: default;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+      }
+
+      &::-webkit-slider-thumb {
+        box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.7), 0 2px 12px rgba(0, 0, 0, 0.3);
+        border: 0;
+        width: 4px;
+        height: 10px;
+        background: #900;
+        cursor: default;
+        -webkit-appearance: none;
+        margin: -4px 0 0 0;
+        /*transition-property: transform, opacity, margin-left;
+        transition-duration: .1s;
+        transition-timing-function: linear;
+        transform: scale(0);
+        opacity: 0;*
+      }
+    }*/
+  }
+  input[type="range"]:focus::-webkit-slider-thumb,
+  input[type="range"]:active::-webkit-slider-thumb,
+  input[type="range"]:active:focus::-webkit-slider-thumb,
+  &:hover .playback-progress input[type="range"]::-webkit-slider-thumb {
     transform: scale(1);
     opacity: 1;
+    margin-left: -1;
   }
 }
 

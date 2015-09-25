@@ -48,4 +48,25 @@
     return null;
   };
 
+  global.setAttr = function(selector, attr, value) {
+    var el = $('[data-' + attr + '="' + selector + '"]');
+    if (el.length > 0) {
+      switch (attr) {
+        case 'width':
+        case 'height':
+          el[attr](value);
+          break;
+        case 'value':
+          el.val(value);
+          break;
+        default:
+          el.attr(attr, value);
+          break;
+      }
+      el.removeClass('hidden');
+      return true;
+    }
+    return false;
+  };
+
 })(window);
