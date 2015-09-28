@@ -74,17 +74,22 @@
 
       data.tracks = [];
       app.display.setTitle('Loading followings...');
+
+      function _loadFollowing(id) {
+        app.api.SC.get('/users/' + id + '/tracks', function(tracks) {
+          app.display.setSubTitle((data.followings_loaded + 1) + ' / ' + (data.followings.length + 1));
+          tracks.forEach(function(track) {
+            data.tracks.push(new app.Track(track));
+          });
+          data.followings_loaded = data.followings_loaded + 1;
+        })
+      };
+
       app.api.SC.get('/users/' + app.profile.get('id') + '/followings', function(followings) {
         data.followings_loaded = 0;
         data.followings = followings;
         data.followings.forEach(function(following) {
-          app.api.SC.get('/users/' + following.id + '/tracks', function(tracks) {
-            app.display.setSubTitle((data.followings_loaded + 1) + ' / ' + (data.followings.length + 1));
-            tracks.forEach(function(track) {
-              data.tracks.push(new app.Track(track));
-            });
-            data.followings_loaded = data.followings_loaded + 1;
-          });
+          _loadFollowing(following.id);
         });
 
         watch(data, 'followings_loaded', function() {
@@ -99,6 +104,24 @@
           }
         });
       });
+
+      /*data.followings_loaded = 0;
+      data.followings = [{
+        id: 30512722
+      }];
+      _loadFollowing(30512722);
+
+      watch(data, 'followings_loaded', function() {
+        if (data.followings_loaded === data.followings.length) {
+          app.display.setTitle('Loading tracks...');
+          data.tracks = utils.shuffle(data.tracks);
+          data.tracks.forEach(function(track) {
+            app.display.setSubTitle((data.loaded + 1) + ' / ' + (data.tracks.length + 1));
+            app.playlist.addTrack(track);
+            data.loaded = data.loaded + 1;
+          });
+        }
+      });*/
 
       watch(data, 'loaded', watcher);
     }

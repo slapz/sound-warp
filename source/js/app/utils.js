@@ -40,7 +40,19 @@ utils.extend = function extend(target, properties) {
   return target;
 };
 
-utils.shuffle = function (array) {
+utils.extendDefaults = function extend(target, properties, cb) {
+  if (!utils.isObject(target) || !utils.isObject(properties) || !utils.isFunction(cb)) {
+    throw new TypeError('Invalid arguments');
+  }
+  Object.keys(properties).forEach(function(key) {
+    if (cb(key, target, properties) === true) {
+      target[key] = properties[key];
+    }
+  });
+  return target;
+};
+
+utils.shuffle = function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue, randomIndex;
 

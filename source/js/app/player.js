@@ -32,11 +32,14 @@ module.exports = function() {
       return $audio.off.apply($audio, getArgs(arguments));
     };
 
+    var progressBar = $('[data-trigger="playback.progress"]');
     player.progress = new Progress({
-      el: $('[data-trigger="playback.progress"]'),
       value: 0,
+      minValue: 0,
       maxValue: 100,
-      editable: true
+      progressBar: progressBar,
+      valueContainer: progressBar.find('.progress-value'),
+      seekHandle: progressBar.find('.seek-handle')
     });
   };
 
@@ -92,7 +95,7 @@ module.exports = function() {
     return {
       hours: _leadingZero(Math.floor(seconds / hour)),
       minutes: _leadingZero(Math.floor(seconds % hour / 60)),
-      seconds: _leadingZero(Math.ceil(seconds % hour % 60))
+      seconds: _leadingZero(Math.floor(seconds % hour % 60))
     };
   };
 
@@ -142,9 +145,9 @@ module.exports = function() {
     player.audio.src = src;
     player.audio.load();
 
+    player.progress.options.progressBar.removeClass('hidden');
     player.progress.setValue(0);
 
-/* @TODO: Implement loading progress indicator
     player.on('progress', function() {
       var bufferedEnd = player.audio.buffered.end(player.audio.buffered.length - 1),
         duration = player.audio.duration,
@@ -152,21 +155,18 @@ module.exports = function() {
         bufferedProgress = (bufferedEnd / duration) * 100,
         playedProgress = (currentTime / duration) * 100;
       if (duration > 0 && (bufferedProgress - playedProgress) === 0) {
-        player.controls.progress.addClass('progress-striped');
+        player.progress.options.progressBar.addClass('loading');
       } else {
-        player.controls.progress.removeClass('progress-striped');
+        player.progress.options.progressBar.removeClass('loading');
       }
     });
-*/
 
     player.on('load loadeddata', function() {
       player.progress.setMaxValue(player.audio.duration);
-      player.progress.refresh();
     });
 
     player.on('timeupdate', function() {
       player.progress.setValue(player.audio.currentTime);
-      player.progress.refresh();
 
       app.display.setSubTitle([
         player.displayTime(player.convertTime(player.audio.currentTime)),
@@ -175,9 +175,13 @@ module.exports = function() {
     });
   };
 
-  player.seekTo = function(time) {
+  player.seekTo = function(time, isPercentValue) {
     if (player.audio === null) {
       player.init();
+    }
+
+    if (isPercentValue && time >= 0) {
+      time = (time * app.player.audio.duration) / 100;
     }
 
     if (time >= 0 && time <= player.audio.duration) {
