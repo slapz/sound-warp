@@ -32,8 +32,7 @@
     "yargs": "^3.21.0"
   },
   "dependencies": {
-    "bootstrap": "^3.3.5",
-    "bootstrap-v4-alpha": "twbs/bootstrap#980d8ea",
+    "bootstrap": "twbs/bootstrap#980d8ea",
     "jquery": "^2.1.4",
     "node-soundcloud": "0.0.3",
     "watchjs": "0.0.0"
