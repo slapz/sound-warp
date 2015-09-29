@@ -28,11 +28,8 @@ module.exports = function(gulp) {
     `${OUT_PATH}/js/jquery.js`,
     `${OUT_PATH}/js/bootstrap.js`,
     `${OUT_PATH}/js/watch.js`,
-    `${OUT_PATH}/js/utils.js`,
-    `${OUT_PATH}/js/chrome.js`,
-    `${OUT_PATH}/js/btn-toggle.js`,
-    `${OUT_PATH}/js/app/*.js`,
-    `${OUT_PATH}/js/app.js`
+    `${OUT_PATH}/js/config.js`,
+    `${OUT_PATH}/js/init.js`
   ];
 
   let bootstrapSCSS = [
@@ -69,8 +66,9 @@ module.exports = function(gulp) {
   task('sources:bootstrap', copy([`${SOURCE_PATH}/bootstrap/*`, `${SOURCE_PATH}/bootstrap/**`], `${OUT_PATH}/bootstrap`));
   task('sources:html-connect', copy([`${SOURCE_PATH}/connect/*.html`], `${OUT_PATH}/connect/`));
   task('sources:html', copy(`${SOURCE_PATH}/*.html`, `${OUT_PATH}`));
+  task('sources:node_modules', copy(`${SOURCE_PATH}/node_modules/**`, `${OUT_PATH}/node_modules`));
   task('sources:components', copy(components, `${OUT_PATH}`));
-  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html', 'sources:html-connect', 'sources:components', 'sources:bootstrap']);
+  task('sources', ['sources:scss', 'sources:css', 'sources:images', 'sources:js', 'sources:html', 'sources:html-connect', 'sources:components', 'sources:bootstrap', 'sources:node_modules']);
   task('preprocess:scss', sass([`${OUT_PATH}/scss/main.scss`], `${OUT_PATH}/css/`));
   task('inject:css', inject({
     target: `${OUT_PATH}/index.html`,

@@ -4,10 +4,9 @@
   @extend .navbar-default;
 
   background: #343434;
-  border-bottom: 1px solid #444;
-  height: 44px;
-  padding-top: 0;
-  padding-bottom: 0;
+  border: 0 none;
+  height: 38px;
+  padding: 0 0 0 80px;
   z-index: 1031;
 
   &, *:not(button):not(input) {
@@ -20,7 +19,7 @@
     float: left;
     padding-top: 3px;
     padding-bottom: 2px;
-    height: 44px;
+    height: 38px;
   }
 
   .header-btn-group {
@@ -43,7 +42,7 @@
     @extend .btn-link;
     @extend .navbar-btn;
 
-    height: 44px;
+    height: 38px;
     padding: 0 10px;
     color: $gray-light;
     cursor: default;
@@ -90,7 +89,7 @@
     min-width: 60px;
     max-width: 110px;
     width: 75px;
-    margin: -3px 50px 0 50px;
+    margin: -6px 20px 0 20px;
     padding: 20px 0;
     background: transparent;
 
@@ -129,8 +128,7 @@
 html.unified-toolbar {
   .header {
     background: #DAD6D9;
-    border-top: 1px solid $gray-lightest;
-    border-bottom: 1px solid #222;
+    border: none;
 
     .header-btn {
       &,
@@ -153,7 +151,7 @@ html.unified-toolbar {
       color: $gray-dark;
       background: #eee;
       border-color: #ddd;
-      height: 42px;
+      height: 38px;
 
       .artwork {
         background: #ddd;
@@ -246,15 +244,15 @@ html.unified-toolbar {
 
     &,
     img {
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
     }
   }
 
   .display-text {
     position: absolute;
     top: 0;
-    left: 42px;
+    left: 38px;
     right: 0;
     bottom: 3px;
     text-align: center;
@@ -274,7 +272,7 @@ html.unified-toolbar {
       position: relative;
       white-space: nowrap;
       padding: 0 5px;
-      height: 20px;
+      height: 15px;
       line-height: 20px;
     }
   }
@@ -282,7 +280,7 @@ html.unified-toolbar {
   .playback-progress {
     display: block;
     position: absolute;
-    left: 42px;
+    left: 38px;
     top: auto;
     bottom: 0;
     right: 0;
@@ -334,7 +332,6 @@ html.unified-toolbar {
 .header {
   .round-rect {
     border-radius: 0;
-    height: 43px;
     border: 0;
     box-shadow: none;
     margin-left: -43px;

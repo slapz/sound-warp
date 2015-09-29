@@ -1,3 +1,5 @@
-# SoundWarp app
+# SoundWarp
 
-This is frontend part of the application.
+SoundWarp is a music player for [SoundCloud](http://soundcloud.com/).
+
+![Preview](./assets/preview-alpha.png)

@@ -70,9 +70,9 @@
     }
 
     .playback-progress {
-      background-color: $gray-light;
+      box-shadow: 0 -5px 0 0 $gray-light inset;
 
-      .progress-bar {
+      .progress-value {
         background-color: $brand-highlight;
       }
     }

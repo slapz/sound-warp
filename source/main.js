@@ -5,10 +5,10 @@ var app = require('app'),
   BrowserWindow = require('browser-window'),
   path = require('path'),
   protocol = null,
-  mainWindow = null,
   filepath = null,
   url = null;
 
+global.mainWindow = null;
 global.accessToken = null;
 app.commandLine.appendSwitch('--enable-file-cookies', 'true');
 
@@ -42,17 +42,18 @@ app.on('ready', function() {
     if (error) console.error('Failed to register protocol "connect":', error);
   });
 
-  mainWindow = new BrowserWindow({
+  global.mainWindow = new BrowserWindow({
     'width': 1050,
     'min-width': 1050,
     'height': 800,
-    'min-height': 200
+    'min-height': 200,
+    'title-bar-style': 'hidden-inset'
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 //  mainWindow.openDevTools();
 
   mainWindow.on('closed', function() {
-    mainWindow = null;
+    global.mainWindow = null;
   });
 });
