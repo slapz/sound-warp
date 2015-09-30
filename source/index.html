@@ -15,12 +15,12 @@
 
         <div class="col-sm-4">
           <div class="header-control header-btn-group">
-            <button type="button" class="header-btn playback-control" data-trigger="playback.previous" disabled><i class="fa fa-backward"></i></button>
-            <button type="button" class="header-btn playback-control" data-trigger="playback.playPause" disabled><i class="fa fa-play"></i></button>
-            <button type="button" class="header-btn playback-control" data-trigger="playback.next" disabled><i class="fa fa-forward"></i></button>
+            <button type="button" class="header-btn playback-control" data-action="sw.player.previous" disabled><i class="fa fa-backward"></i></button>
+            <button type="button" class="header-btn playback-control" data-action="sw.player.play.toggle" disabled><i class="fa fa-play"></i></button>
+            <button type="button" class="header-btn playback-control" data-action="sw.player.next" disabled><i class="fa fa-forward"></i></button>
           </div>
           <div class="header-control">
-            <input type="range" min="0" max="1" step="0.001" value="0.5" class="volume-control" data-trigger="playback.volume">
+            <input type="range" min="0" max="1" step="0.001" value="0.5" class="volume-control" data-action="sw.player.volume">
           </div>
         </div>
 
@@ -35,7 +35,7 @@
               <div class="text-row" data-var="display.main-row"></div>
               <div class="sub-text-row" data-var="display.sub-row"></div>
             </div>
-            <div class="playback-progress hidden" data-trigger="playback.progress">
+            <div class="playback-progress hidden" data-action="sw.player.progress">
               <div class="progress-value" style="width: 0%;">
                 <div class="seek-handle"></div>
               </div>
@@ -66,7 +66,7 @@
 
       <div class="round-rect">
         <h1>Connect with SoundCloud</h1>
-        <a role="button" class="btn btn-primary" data-trigger="connect.connect">Connect</a>
+        <a role="button" class="btn btn-primary" data-action="sw.client.connect">Connect</a>
       </div>
 
     </div>

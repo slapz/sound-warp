@@ -5,21 +5,30 @@ let SoundWarp = require(`classes/app`),
   Viewport = require(`modules/viewport`),
   Client = require(`modules/client`),
   Profile = require(`modules/profile`),
-  Display = require(`modules/display`),
-  Player = require(`modules/player/player`);
+  Display = require(`modules/display/display`),
+  Player = require(`modules/player/player`),
+  events = require(`modules/events`),
+  event = null;
 
+/* Construct the application */
 global.sw = new SoundWarp();
+
+/* Setup configuration options */
 sw.setOptions(config);
 
-sw.defineModules({
+/* Register modules */
+sw.registerModules({
   'viewport': new Viewport(),
-  'client': new Client(),
+  'client': new Client(sw.getOption('client')),
   'profile': new Profile(),
   'display': new Display(),
   'player': new Player()
 });
 
-/**
- * @TODO Progress indicator must be part of `Display`
- * @TODO Map controls and events
-*/
+/* Attach Events */
+Object.keys(events).forEach(function(key) {
+  event = events[key];
+  if (typeof event === 'object' && typeof event.register === 'function') {
+    event.register();
+  }
+});

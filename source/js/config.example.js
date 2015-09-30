@@ -5,6 +5,8 @@
 */
 
 module.exports = {
-  client_id: '',
-  redirect_uri: 'connect://soundcloud'
+  client: {
+    client_id: '',
+    redirect_uri: 'connect://soundcloud'
+  }
 };
