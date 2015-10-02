@@ -6,6 +6,7 @@ let SoundWarp = require(`classes/app`),
   Client = require(`modules/client`),
   Profile = require(`modules/profile`),
   Display = require(`modules/display/display`),
+  PlaylistView = require(`modules/display/playlist-view`),
   Player = require(`modules/player/player`),
   events = require(`modules/events`),
   event = null;
@@ -22,7 +23,8 @@ sw.registerModules({
   'client': new Client(sw.getOption('client')),
   'profile': new Profile(),
   'display': new Display(),
-  'player': new Player()
+  'player': new Player(),
+  'view': new PlaylistView()
 });
 
 /* Attach Events */

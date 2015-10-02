@@ -28,7 +28,6 @@ app.on('ready', function() {
   protocol.registerFileProtocol('warp', function(req, callback) {
     url = req.url.substring(7);
     filepath = path.normalize(__dirname + '/' + url);
-    console.log('warp:', url, filepath);
     callback(filepath);
   }, function(error) {
     if (error) console.error('Failed to register protocol "warp":', error);
