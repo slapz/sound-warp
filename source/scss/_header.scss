@@ -6,8 +6,7 @@
   background: #343434;
   border: 0 none;
   height: 38px;
-  //padding: 0 0 0 80px;
-  padding: 0 0 0 0;
+  padding: 0 0 0 80px;
   z-index: 1031;
 
   .header-control {
@@ -37,6 +36,7 @@
     @extend .btn;
     @extend .btn-link;
     @extend .navbar-btn;
+    @extend .ui-nodrag;
 
     height: 38px;
     padding: 0 10px;
@@ -78,9 +78,11 @@
     margin: 4px 0;
     width: 30px;
     height: 30px;
+    @extend .ui-nodrag;
   }
 
   .volume-control {
+    @extend .ui-nodrag;
     -webkit-appearance: none;
     min-width: 60px;
     max-width: 110px;

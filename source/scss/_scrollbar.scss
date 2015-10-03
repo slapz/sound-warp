@@ -1,4 +1,4 @@
-.viewport {
+@mixin scrollbar() {
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -15,4 +15,9 @@
       background: $gray;
     }
   }
+}
+
+.viewport,
+.table-body {
+  @include scrollbar();
 }

@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
 
-gulp && electron ./dist;
+ELECTRON='electron';
+if [[ $1 -eq '-r' ]]; then
+  ELECTRON='../electron/out/D/Electron.app/Contents/MacOS/Electron';
+fi
+
+gulp && $ELECTRON ./dist;
