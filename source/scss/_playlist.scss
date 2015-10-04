@@ -1,5 +1,7 @@
 .playlist {
   .table-body {
+    top: 29px;
+
     .table-column {
       color: #333;
     }
@@ -11,5 +13,28 @@
         color: #333;
       }
     }
+  }
+
+  .table-head,
+  .table-body {
+    .table-column:nth-child(1) {
+      padding: 2px;
+    }
+  }
+
+  .artwork {
+    height: 67px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .artwork-img {
+      width: 67px;
+      height: 67px;
+    }
+  }
+
+  .main {
+    font-size: 14px;
+    font-weight: bold;
   }
 }

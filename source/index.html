@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--html lang="utf-8" class="light"-->
-<!--html lang="utf-8" class="unified-toolbar light"-->
 <html lang="utf-8">
   <head>
     <meta charset="utf-8">
@@ -28,14 +26,14 @@
 
           <div class="round-rect display">
             <div class="artwork">
-              <img src="" class="hidden" data-bind="sw.display.artwork" />
+              <img src="" class="hidden" data-bind="sw.display.artwork" data-bind-class="sw.display.artwork">
             </div>
             <div class="display-text">
-              <div class="text-row" data-bind="sw.display.mainTitle"></div>
-              <div class="sub-text-row" data-bind="sw.display.subTitle"></div>
+              <div class="text-row" data-bind="sw.display.title.main"></div>
+              <div class="sub-text-row" data-bind="sw.display.title.sub"></div>
             </div>
-            <div class="playback-progress hidden" data-bind="sw.player.progress">
-              <div class="progress-value" style="width: 0%;">
+            <div class="playback-progress hidden" data-bind-class="sw.player.progress" data-id="sw.player.progress">
+              <div class="progress-value" style="width: 0%;" data-id="sw.player.progress.value">
                 <div class="seek-handle"></div>
               </div>
             </div>
@@ -46,15 +44,12 @@
         <div class="col-sm-4">
           <div class="text-right">
             <img src="" class="img-circle hidden avatar-img" data-bind="sw.profile.avatar" data-bind-class="sw.profile.avatar">
-            <button type="button" class="header-btn hidden" data-bind="sw.profile.username" data-bind-class="sw.profile.username"></button>
-            <!--div class="btn-group">
-              <button type="button" class="header-btn hidden dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-var="profile.username"></button>
+            <div class="btn-group">
+              <button type="button" class="header-btn hidden dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bind="sw.profile.username" data-bind-class="sw.profile.username"></button>
               <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item">Subscription</a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">Sign out</a>
+                <a class="dropdown-item" data-action="sw.client.disconnect">Sign out</a>
               </div>
-            </div-->
+            </div>
           </div>
         </div>
 

@@ -12,7 +12,10 @@ let fs = require('fs');
 let gutil = require('gulp-util');
 let packageInfo = JSON.parse(fs.readFileSync(`${BASE_PATH}/package.json`));
 let tasks = [
-  'build', 'dev', 'default'
+  'build',
+  'dev',
+  'run',
+  'default'
 ];
 
 require(`${TASKS_PATH}/helpers/gutil.js`)(gutil);
@@ -30,5 +33,3 @@ tasks.forEach(function(filepath) {
     task(gulp);
   }
 });
-
-gulp.task('test', tasks);

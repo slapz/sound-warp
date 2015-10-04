@@ -10,6 +10,7 @@ var app = require('app'),
 
 global.mainWindow = null;
 global.accessToken = null;
+global.globalShortcut = require('global-shortcut');
 app.commandLine.appendSwitch('--enable-file-cookies', 'true');
 
 crashReporter.start();
@@ -46,7 +47,7 @@ app.on('ready', function() {
     'min-width': 1050,
     'height': 800,
     'min-height': 200,
-    'title-bar-style': 'hidden-inset'
+    //'title-bar-style': 'hidden-inset'
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
@@ -55,4 +56,8 @@ app.on('ready', function() {
   mainWindow.on('closed', function() {
     global.mainWindow = null;
   });
+});
+
+app.on('will-quit', function() {
+  global.globalShortcut.unregisterAll();
 });
