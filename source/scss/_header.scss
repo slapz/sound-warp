@@ -3,18 +3,19 @@
   @extend .navbar-fixed-top;
   @extend .navbar-default;
 
-  background: #DAD6D9;
-  border-bottom: 1px solid #BCBCBC;
-  height: 39px;
+  background: #333;
+  border-bottom: 0;
+  height: 38px;
   padding: 0 0 0 /*80px*/ 0;
   z-index: 2000;
+  color: #878787;
 
   .header-control {
     display: inline-block;
     float: left;
     padding-top: 3px;
     padding-bottom: 2px;
-    height: 39px;
+    height: 38px;
   }
 
   .header-btn-group {
@@ -38,9 +39,9 @@
     @extend .navbar-btn;
     @extend .ui-nodrag;
 
-    height: 39px;
+    height: 38px;
     padding: 0 10px;
-    color: $gray-dark;
+    color: $gray-light;
     cursor: default;
 
     &:hover {
@@ -52,7 +53,7 @@
     &:active,
     &:active:focus {
       outline: none;
-      color: $gray-dark;
+      color: $gray-light;
       text-decoration: none;
     }
 
@@ -72,6 +73,15 @@
         }
       }
     }
+  }
+
+  .dropdown-menu {
+    padding: 4px 0 4px 0;
+    box-shadow: 0 0 10px #444;
+    margin-top: 0px;
+    border-top-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   .avatar-img {
@@ -193,16 +203,16 @@
 
 .round-rect {
   border: 1px solid #BCBCBC;
-  background: #eee;
+  background: #444;
   box-shadow: 0 0 1px lighten($gray, 40%) inset;
   margin: 0;
   border-radius: 3px;
-  color: $gray-dark;
+  color: $gray-light;
   position: relative;
   text-align: left;
 
   .artwork {
-    background: #ddd;
+    background: #555;
     display: inline-block;
 
     &,
@@ -249,7 +259,7 @@
     right: 0;
     border-radius: 0;
     height: 15px;
-    box-shadow: 0 -5px 0 0 $gray-light inset;
+    box-shadow: 0 -5px 0 0 #777 inset;
 
     .progress-value {
       width: 0%;

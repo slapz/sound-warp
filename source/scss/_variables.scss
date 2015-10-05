@@ -298,20 +298,20 @@ $form-icon-error: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGl
 //
 // Dropdown menu container and contents.
 
-$dropdown-bg:                    #444 !default;
-$dropdown-border:                rgba(0,0,0,.15) !default;
-$dropdown-divider-bg:            #333 !default;
+$dropdown-bg:                    #fff !default;
+$dropdown-border:                rgba(0,0,0,0) !default;
+$dropdown-divider-bg:            #BCBCBC !default;
 
-$dropdown-link-color:            $gray-light !default;
-$dropdown-link-hover-color:      $gray-lighter !default;
-$dropdown-link-hover-bg:         $gray !default;
+$dropdown-link-color:            $gray-dark !default;
+$dropdown-link-hover-color:      #fff !default;
+$dropdown-link-hover-bg:         $brand-primary !default;
 
 $dropdown-link-active-color:     $component-active-color !default;
 $dropdown-link-active-bg:        $component-active-bg !default;
 
-$dropdown-link-disabled-color:   $gray-light !default;
+$dropdown-link-disabled-color:   $gray !default;
 
-$dropdown-header-color:          $gray-light !default;
+$dropdown-header-color:          $gray !default;
 
 
 // Z-index master list
