@@ -4,9 +4,11 @@
   @extend .navbar-default;
 
   background: #333;
+  -webkit-backdrop-filter: blur(10px);
+
   border-bottom: 0;
   height: 38px;
-  padding: 0 0 0 /*80px*/ 0;
+  padding: 0 0 0 80px;
   z-index: 2000;
   color: #878787;
 
