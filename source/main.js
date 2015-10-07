@@ -47,8 +47,7 @@ app.on('ready', function() {
     'min-width': 1024,
     'height': 800,
     'min-height': 200,
-    'title-bar-style': 'hidden-inset',
-    'fullscreen': false
+    'title-bar-style': 'hidden'
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');

@@ -1,3 +1,6 @@
+$header-height: 38px;
+$header-title-height: 22px;
+
 html,
 body {
   background: #343434;
@@ -46,7 +49,7 @@ body {
 .viewport {
   background: #fff;
   position: absolute;
-  top: 38px;
+  top: ($header-height + $header-title-height);
   left: 0;
   right: 0;
   bottom: -16px;
@@ -59,7 +62,7 @@ body {
 .connect {
   position: fixed;
   z-index: 9999;
-  top: 38px;
+  top: ($header-height + $header-title-height);
   left: 0;
   right: 0;
   bottom: 0;
