@@ -44,10 +44,11 @@ app.on('ready', function() {
 
   global.mainWindow = new BrowserWindow({
     'width': 1050,
-    'min-width': 1050,
+    'min-width': 1024,
     'height': 800,
     'min-height': 200,
-    'title-bar-style': 'hidden-inset'
+    'title-bar-style': 'hidden-inset',
+    'fullscreen': false
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
