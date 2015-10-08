@@ -1,5 +1,4 @@
-$header-height: 38px;
-$header-title-height: 22px;
+$toolbar-height: 40px;
 
 html,
 body {
@@ -49,23 +48,27 @@ body {
 .viewport {
   background: #fff;
   position: absolute;
-  top: ($header-height + $header-title-height);
+  top: 0;
   left: 0;
   right: 0;
-  bottom: -16px;
+  bottom: $toolbar-height;
   overflow: auto;
 
   .viewport-content {
   }
 }
 
+.toolbar + .viewport {
+  top: $toolbar-height;
+}
+
 .connect {
   position: fixed;
   z-index: 9999;
-  top: ($header-height + $header-title-height);
+  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: $toolbar-height;
   background: #fff;
 
   .round-rect {
