@@ -1,4 +1,6 @@
 $toolbar-height: 40px;
+$sidebar-width: 25%;
+$sidebar-min-width: 200px;
 
 html,
 body {
@@ -45,6 +47,15 @@ body {
   display: none;
 }
 
+@mixin attach-to-sidebar() {
+  width: $sidebar-width;
+  max-width: $sidebar-min-width;
+}
+
+.attach-to-sidebar {
+  @include attach-to-sidebar();
+}
+
 .viewport {
   background: #fff;
   position: absolute;
@@ -52,9 +63,37 @@ body {
   left: 0;
   right: 0;
   bottom: $toolbar-height;
-  overflow: auto;
+  overflow: hidden;
 
   .viewport-content {
+    overflow: hidden;
+    .row {
+      & > .sidebar,
+      & > .main {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+      }
+
+      & > .sidebar {
+        @include attach-to-sidebar();
+        left: 0;
+        right: auto;
+        overflow: auto;
+
+        nav {
+          a {
+            display: block;
+          }
+        }
+      }
+
+      & > .main {
+        min-width: (100% - $sidebar-width);
+        left: auto;
+        right: 0;
+      }
+    }
   }
 }
 

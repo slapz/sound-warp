@@ -143,115 +143,64 @@ footer.toolbar {
   @extend .navbar-fixed-bottom;
 }
 
-.round-rect {
-  border: 1px solid #BCBCBC;
-  background: $gray-lighter;
-  box-shadow: 0 0 1px lighten($gray, 40%) inset;
-  margin: 0;
-  border-radius: 3px;
-  color: $gray-light;
-  position: relative;
-  text-align: left;
+.playback-progress {
+  display: block;
+  position: absolute;
+  left: $toolbar-height;
+  top: 9px;
+  bottom: 0;
+  right: 0;
+  border-radius: 0;
+  height: 15px;
+  box-shadow: 0 -5px 0 0 #777 inset;
 
-  .artwork {
-    background: $gray-light;
-    display: inline-block;
-
-    &,
-    img {
-      width: $toolbar-height;
-      height: $toolbar-height;
-    }
-  }
-
-  .display-text {
+  .progress-value {
+    width: 0%;
+    height: 5px;
+    background: $brand-primary;
     position: absolute;
-    top: 0;
-    left: $toolbar-height;
-    right: 0;
-    bottom: 3px;
-    text-align: center;
-    overflow: hidden;
-
-    .text-row {
-      font-size: 80%;
-      font-weight: bold;
-    }
-
-    .sub-text-row {
-      font-size: 70%;
-    }
-
-    .text-row,
-    .sub-text-row {
-      position: relative;
-      white-space: nowrap;
-      padding: 0 5px;
-      height: 15px;
-      line-height: 20px;
-    }
-  }
-
-  .playback-progress {
-    display: block;
-    position: absolute;
-    left: $toolbar-height;
     top: auto;
     bottom: 0;
-    right: 0;
-    border-radius: 0;
-    height: 15px;
-    box-shadow: 0 -5px 0 0 #777 inset;
+  }
 
+  .seek-handle {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+    width: 11px;
+    height: 11px;
+    background: #fff;
+    cursor: default;
+    -webkit-appearance: none;
+    margin: -3px 0 0 0;
+    position: absolute;
+    right: -5px;
+    border-radius: 10px;
+    transition-property: opacity, transform;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+  }
+
+  &.loading {
+    &,
     .progress-value {
-      width: 0%;
-      height: 5px;
-      background: $brand-primary;
-      position: absolute;
-      top: auto;
-      bottom: 0;
-    }
-
-    .seek-handle {
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-      width: 11px;
-      height: 11px;
-      background: #fff;
-      cursor: default;
-      -webkit-appearance: none;
-      margin: -3px 0 0 0;
-      position: absolute;
-      right: -5px;
-      border-radius: 10px;
-      transition-property: opacity, transform;
-      transition-duration: 0.1s;
-      transition-timing-function: linear;
-      opacity: 0;
-      transform: scale(0);
-    }
-
-    &.loading {
-      &,
-      .progress-value {
-        background: $brand-info;
-      }
+      background: $brand-info;
     }
   }
 }
 
-.toolbar {
-  .round-rect {
-    border-radius: 0;
-    border: 0;
-    box-shadow: none;
-    margin-left: -43px;
-    height: $toolbar-height;
+.playback-time-current,
+.playback-time-duration {
+  position: relative;
+  text-align: center;
+  font-size: 11px;
+  line-height: $toolbar-height;
+}
 
-    &:hover .playback-progress .seek-handle {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+.playback-time-current {
+  left: 20px;
+}
+
+.playback-time-duration {
+  right: 20px;
 }
 
 @keyframes marquee {
@@ -272,4 +221,27 @@ footer.toolbar {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: normal;
+}
+
+.player-container {
+  @include attach-to-sidebar();
+
+  height: $sidebar-width;
+  min-height: $sidebar-min-width;
+  border-top: 1px solid #BCBCBC;
+  position: relative;
+
+  .artwork {
+    img {
+      @include attach-to-sidebar();
+
+      height: $sidebar-width;
+      min-height: $sidebar-min-width;
+    }
+  }
+
+  .now-playing {
+    overflow: hidden;
+    position: relative;
+  }
 }

@@ -40,38 +40,46 @@
         </div>
 
         <div class="row">
-          <aside class="col-sm-3">
+          <aside class="col-sm-3 sidebar">
 
             <nav>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
+              <h3>MAIN</h3>
+              <a href="#">Browse</a>
+              <a href="#">Activity</a>
+              <a href="#">Stream</a>
             </nav>
 
-            <hr>
-            
             <nav>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
-              <a href="#">Home</a>
+              <h3>YOUR MUSIC</h3>
+              <a href="#">Songs</a>
+              <a href="#">Albums</a>
+              <a href="#">Artists</a>
+              <a href="#">Local files</a>
+            </nav>
+
+            <nav>
+              <h3>PLAYLISTS</h3>
+              <a href="#">Starred</a>
+            </nav>
+
+            <nav>
+              <a href="#">NEW PLAYLIST</a>
             </nav>
 
           </aside>
-          <main class="col-sm-9">
+          <main class="col-sm-9 main">
             <div class="playlist" data-id="sw.playlist.view" data-bind="sw.playlist.view"></div>
           </main>
+
+          <div class="player-container">
+            <div class="artwork">
+              <img src="" class="hidden" data-bind="sw.display.artwork" data-bind-class="sw.display.artwork">
+            </div>
+            <div class="now-playing">
+              <div class="text-row" data-bind="sw.display.title.main"></div>
+              <div class="sub-text-row" data-bind="sw.display.title.sub"></div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -80,37 +88,37 @@
     <footer role="banner" class="toolbar">
       <div class="row">
 
-        <div class="col-sm-4">
+        <div class="col-sm-3 attach-to-sidebar">
           <div class="toolbar-control toolbar-btn-group">
             <button type="button" class="toolbar-btn playback-control" data-action="sw.player.previous" disabled><i class="fa fa-backward"></i></button>
             <button type="button" class="toolbar-btn playback-control" data-action="sw.player.play.toggle" disabled><i class="fa fa-play"></i></button>
             <button type="button" class="toolbar-btn playback-control" data-action="sw.player.next" disabled><i class="fa fa-forward"></i></button>
           </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-4 text-center">
+              <span class="playback-time-current" data-bind="sw.player.time.current">0:00</span>
+            </div>
+            <div class="col-sm-4">
+              <div class="playback-progress" data-bind-class="sw.player.progress" data-id="sw.player.progress">
+                <div class="progress-value" style="width: 0%;" data-id="sw.player.progress.value">
+                  <div class="seek-handle"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 text-center">
+              <span class="playback-time-duration" data-bind="sw.player.time.duration">0:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
           <div class="toolbar-control">
             <input type="range" min="0" max="1" step="0.001" value="0.5" class="volume-control" data-action="sw.player.volume">
           </div>
         </div>
-
-        <div class="col-sm-4">
-
-          <div class="round-rect display">
-            <div class="artwork">
-              <img src="" class="hidden" data-bind="sw.display.artwork" data-bind-class="sw.display.artwork">
-            </div>
-            <div class="display-text">
-              <div class="text-row" data-bind="sw.display.title.main"></div>
-              <div class="sub-text-row" data-bind="sw.display.title.sub"></div>
-            </div>
-            <div class="playback-progress hidden" data-bind-class="sw.player.progress" data-id="sw.player.progress">
-              <div class="progress-value" style="width: 0%;" data-id="sw.player.progress.value">
-                <div class="seek-handle"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-sm-4"></div>
 
       </div>
     </footer>

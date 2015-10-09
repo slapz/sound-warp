@@ -28,8 +28,8 @@
     background: #232323;
     border-bottom: 1px solid #BCBCBC;
     color: $gray-light;
-    position: fixed;
-    left: 0;
+    position: absolute;
+    left: 1px;
     right: 0;
     z-index: +1;
     padding-right: 8px;
@@ -38,7 +38,6 @@
   .table-body {
     display: block;
     overflow: auto;
-    overflow-y: scroll;
     position: absolute;
     top: 25px;
     left: 0;
