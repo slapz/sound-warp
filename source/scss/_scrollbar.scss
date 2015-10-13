@@ -1,23 +1,24 @@
 @mixin scrollbar() {
-  &::-webkit-scrollbar {
+/*  &::-webkit-scrollbar {
     width: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #BCBCBC;
+    background: #555;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 0;
-    background: #888;
+    background: #111;
 
     &:window-inactive {
       background: $gray;
     }
   }
+*/
 }
 
-.sidebar,
-.table-body {
+.scrollable {
+  overflow: auto;
   @include scrollbar();
 }

@@ -25,17 +25,18 @@
 
   .table-head {
     display: block;
-    background: #232323;
-    border-bottom: 1px solid #BCBCBC;
+    background: rgba(100, 100, 100, 0.2);
+    border-bottom: 1px solid #222;
     color: $gray-light;
     position: absolute;
-    left: 1px;
+    left: 0;
     right: 0;
     z-index: +1;
-    padding-right: 8px;
   }
 
   .table-body {
+    @extend .scrollable;
+
     display: block;
     overflow: auto;
     position: absolute;

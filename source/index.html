@@ -8,120 +8,90 @@
   </head>
   <body class="ui-nodrag">
 
-    <header role="banner" class="toolbar">
-      <div class="row ui-drag">
+    <div class="connect" role="banner" data-bind-class="sw.connect.overlay">
+      <div class="round-rect">
+        <h1>Connect with SoundCloud</h1>
+        <a role="button" class="btn btn-primary" data-action="sw.client.connect">Connect</a>
+      </div>
+    </div>
 
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-
-        <div class="col-sm-4">
-          <div class="text-right">
-            <img src="" class="img-circle hidden avatar-img" data-bind="sw.profile.avatar" data-bind-class="sw.profile.avatar">
-            <div class="btn-group">
-              <button type="button" class="toolbar-btn hidden dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bind="sw.profile.username" data-bind-class="sw.profile.username"></button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" data-action="sw.client.disconnect">Sign out</a>
-              </div>
+    <header role="banner" class="toolbar align ui-drag">
+      <div class="toolbar-col search-field-wrapper" order="0">
+        <input type="search" name="q" value="" placeholder="Search" class="search-field" disabled>
+      </div>
+      <div class="toolbar-col" order="1"></div>
+      <div class="toolbar-col" order="2">
+        <div class="text-right">
+          <img src="" class="img-circle hidden avatar-img" data-bind="sw.profile.avatar" data-bind-class="sw.profile.avatar">
+          <div class="btn-group">
+            <button type="button" class="toolbar-btn hidden dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bind="sw.profile.username" data-bind-class="sw.profile.username"></button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" data-action="sw.client.disconnect">Sign out</a>
             </div>
           </div>
         </div>
-
       </div>
     </header>
 
     <main class="viewport">
       <div class="viewport-content">
 
-        <div class="connect" role="banner" data-bind-class="sw.connect.overlay">
-          <div class="round-rect">
-            <h1>Connect with SoundCloud</h1>
-            <a role="button" class="btn btn-primary" data-action="sw.client.connect">Connect</a>
-          </div>
-        </div>
-
-        <div class="row">
-          <aside class="col-sm-3 sidebar">
-
+        <aside class="sidebar" order="0">
+          <div class="wrapper scrollable">
             <nav>
               <h3>MAIN</h3>
-              <a href="#">Browse</a>
-              <a href="#">Activity</a>
-              <a href="#">Stream</a>
+              <a href="javascript:void(0);">Stream</a>
             </nav>
+          </div>
 
-            <nav>
-              <h3>YOUR MUSIC</h3>
-              <a href="#">Songs</a>
-              <a href="#">Albums</a>
-              <a href="#">Artists</a>
-              <a href="#">Local files</a>
-            </nav>
-
-            <nav>
-              <h3>PLAYLISTS</h3>
-              <a href="#">Starred</a>
-            </nav>
-
-            <nav>
-              <a href="#">NEW PLAYLIST</a>
-            </nav>
-
-          </aside>
-          <main class="col-sm-9 main">
-            <div class="playlist" data-id="sw.playlist.view" data-bind="sw.playlist.view"></div>
-          </main>
-
-          <div class="player-container">
+          <div class="player-artwork-container">
             <div class="artwork">
               <img src="" class="hidden" data-bind="sw.display.artwork" data-bind-class="sw.display.artwork">
             </div>
-            <div class="now-playing">
+            <div class="now-playing hidden" data-bind-class="now-playing">
               <div class="text-row" data-bind="sw.display.title.main"></div>
               <div class="sub-text-row" data-bind="sw.display.title.sub"></div>
             </div>
           </div>
-        </div>
+        </aside>
+
+        <main class="main" order="1">
+          <div class="playlist" data-id="sw.playlist.view" data-bind="sw.playlist.view"></div>
+        </main>
 
       </div>
     </main>
 
-    <footer role="banner" class="toolbar">
-      <div class="row">
+    <footer role="banner" class="toolbar align">
+      <div class="toolbar-col attach-to-sidebar" order="0">
+        <div class="toolbar-control toolbar-btn-group">
+          <button type="button" class="toolbar-btn playback-control" data-action="sw.player.previous" disabled><i class="fa fa-backward"></i></button>
+          <button type="button" class="toolbar-btn playback-control" data-action="sw.player.play.toggle" disabled><i class="fa fa-play"></i></button>
+          <button type="button" class="toolbar-btn playback-control" data-action="sw.player.next" disabled><i class="fa fa-forward"></i></button>
+        </div>
+      </div>
 
-        <div class="col-sm-3 attach-to-sidebar">
-          <div class="toolbar-control toolbar-btn-group">
-            <button type="button" class="toolbar-btn playback-control" data-action="sw.player.previous" disabled><i class="fa fa-backward"></i></button>
-            <button type="button" class="toolbar-btn playback-control" data-action="sw.player.play.toggle" disabled><i class="fa fa-play"></i></button>
-            <button type="button" class="toolbar-btn playback-control" data-action="sw.player.next" disabled><i class="fa fa-forward"></i></button>
+      <div class="toolbar-col playback-progress-info" order="1">
+        <div class="playback-time-current" data-bind="sw.player.time.current" order="0">0:00</div>
+        <div class="playback-progress" data-bind-class="sw.player.progress" data-id="sw.player.progress" order="1">
+          <div class="progress-fill"></div>
+          <div class="progress-value" style="width: 0%;" data-id="sw.player.progress.value">
+            <div class="seek-handle"></div>
           </div>
         </div>
+        <div class="playback-time-duration" data-bind="sw.player.time.duration" order="1">0:00</div>
+      </div>
 
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-4 text-center">
-              <span class="playback-time-current" data-bind="sw.player.time.current">0:00</span>
-            </div>
-            <div class="col-sm-4">
-              <div class="playback-progress" data-bind-class="sw.player.progress" data-id="sw.player.progress">
-                <div class="progress-value" style="width: 0%;" data-id="sw.player.progress.value">
-                  <div class="seek-handle"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 text-center">
-              <span class="playback-time-duration" data-bind="sw.player.time.duration">0:00</span>
-            </div>
-          </div>
+      <div class="toolbar-col" order="2">
+        <div class="toolbar-control volume-control-wrapper">
+          <i class="fa fa-volume-down"></i>
+          <input type="range" min="0" max="1" step="0.001" value="0.5" class="volume-control" data-action="sw.player.volume">
+          <i class="fa fa-volume-up"></i>
         </div>
-
-        <div class="col-sm-3">
-          <div class="toolbar-control">
-            <input type="range" min="0" max="1" step="0.001" value="0.5" class="volume-control" data-action="sw.player.volume">
-          </div>
-        </div>
-
       </div>
     </footer>
+
+    <div class="background" data-id="background"></div>
 
     <script src="warp://js/jquery.js"></script><script>/* jQuery fix */ window.$ = window.jQuery = window.jQuery || module.exports;</script>
     <script src="warp://js/bootstrap.js"></script>

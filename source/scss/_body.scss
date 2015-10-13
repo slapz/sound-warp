@@ -25,6 +25,20 @@ body {
   min-height: 200px;
 
   @extend .ui-nodrag;
+
+  & > .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100% 100%;
+    -webkit-filter: blur(20px);
+    opacity: 0.2;
+  }
 }
 
 * {
@@ -57,7 +71,6 @@ body {
 }
 
 .viewport {
-  background: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -67,33 +80,7 @@ body {
 
   .viewport-content {
     overflow: hidden;
-    .row {
-      & > .sidebar,
-      & > .main {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-      }
-
-      & > .sidebar {
-        @include attach-to-sidebar();
-        left: 0;
-        right: auto;
-        overflow: auto;
-
-        nav {
-          a {
-            display: block;
-          }
-        }
-      }
-
-      & > .main {
-        min-width: (100% - $sidebar-width);
-        left: auto;
-        right: 0;
-      }
-    }
+    height: 100%;
   }
 }
 
@@ -108,7 +95,7 @@ body {
   left: 0;
   right: 0;
   bottom: $toolbar-height;
-  background: #fff;
+  background: #333;
 
   .round-rect {
     width: 800px;
@@ -116,9 +103,9 @@ body {
     padding: 50px 0;
     height: auto;
     text-align: center;
-    background: $gray-lighter;
-    border-color: #ddd;
-    color: $gray-dark;
+    background: $gray;
+    border-color: #222;
+    color: $gray-light;
 
     .title {
       margin-bottom: 50px;

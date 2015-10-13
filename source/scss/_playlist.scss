@@ -3,14 +3,14 @@
     top: 29px;
 
     .table-column {
-      color: #333;
+      color: #fff;
     }
 
     .now-playing {
-      background: #A3CCFE;
+      background: linear-gradient(to bottom, rgba(255,85,0,0.3), rgba(255,85,0,0.5));
 
       .table-column {
-        color: #333;
+        color: #fff;
       }
     }
   }
