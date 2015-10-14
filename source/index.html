@@ -17,7 +17,7 @@
 
     <header role="banner" class="toolbar align ui-drag">
       <div class="toolbar-col search-field-wrapper" order="0">
-        <input type="search" name="q" value="" placeholder="Search" class="search-field" disabled>
+        <input type="search" name="q" value="" placeholder="Search" class="search-field">
       </div>
       <div class="toolbar-col" order="1"></div>
       <div class="toolbar-col" order="2">
@@ -45,9 +45,7 @@
           </div>
 
           <div class="player-artwork-container">
-            <div class="artwork">
-              <img src="" class="hidden" data-bind="sw.display.artwork" data-bind-class="sw.display.artwork">
-            </div>
+            <div class="artwork animate property-all duration-faster" data-id="sw.display.artwork" data-bind-class="sw.display.artwork"></div>
             <div class="now-playing hidden" data-bind-class="now-playing">
               <div class="text-row" data-bind="sw.display.title.main"></div>
               <div class="sub-text-row" data-bind="sw.display.title.sub"></div>
@@ -91,7 +89,7 @@
       </div>
     </footer>
 
-    <div class="background" data-id="background"></div>
+    <div class="background animate property-all duration-faster" data-id="sw.display.background.artwork"></div>
 
     <script src="warp://js/jquery.js"></script><script>/* jQuery fix */ window.$ = window.jQuery = window.jQuery || module.exports;</script>
     <script src="warp://js/bootstrap.js"></script>

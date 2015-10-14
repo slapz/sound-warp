@@ -86,29 +86,30 @@
         @extend .form-control;
         @extend .ui-nodrag;
 
-        &:focus {
-          border-color: #111;
-        }
-
         padding: 2px 7px;
 
+        &,
         &:focus,
         &:hover,
         &:disabled {
-          background-color: #111;
-          border-color: #111;
-          color: #fff;
+          background: rgba(0,0,0,0.3);
+          border-width: 0;
+          color: #444;
         }
         &::-webkit-input-placeholder {
           color: #444;
         }
 
-        &:disabled {
-          background-color: #333;
-          border-color: #333;
+        &:focus {
+          color: #888;
+        }
 
+        &:disabled {
+          background: rgba(0,0,0,0.7);
+
+          &:focus,
           &::-webkit-input-placeholder {
-            color: #222;
+            color: #444;
           }
         }
       }
@@ -123,12 +124,25 @@
     }
 
     .dropdown-menu {
-      padding: 4px 0 4px 0;
+      background: #fff;
+      border: 0;
+      overflow: hidden;
+      padding: 0 0 4px 0;
+      margin: 2px 0 0 0;
       box-shadow: 0 0 10px #444;
-      margin-top: 0px;
       border-top-width: 0;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
+
+      .dropdown-item {
+        font-size: 13px;
+
+        &:hover,
+        &:focus {
+          background: #0B55E0;
+          color: #fff;
+        }
+      }
     }
 
     .avatar-img {

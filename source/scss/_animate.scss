@@ -1,0 +1,30 @@
+.animate {
+  transition-timing-function: linear;
+  transition-delay: 0;
+
+  &,
+  &.property-all {
+    transition-property: all;
+  }
+  &.property-opacity {
+    transition-property: opacity;
+  }
+
+  /* Animation duration */
+  &.duration-slow {
+    transition-duration: 2s;
+  }
+  &,
+  &.duration-default {
+    transition-duration: 1s;
+  }
+  &.duration-fast {
+    transition-duration: 0.7s;
+  }
+  &.duration-faster {
+    transition-duration: 0.5s;
+  }
+  &.duration-fastest {
+    transition-duration: 0.2s;
+  }
+}
