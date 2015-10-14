@@ -33,11 +33,11 @@ body {
     right: 0;
     bottom: 0;
     z-index: 0;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 100% 100%;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 110%;
     -webkit-filter: blur(20px);
-    opacity: 0.2;
+    opacity: 0.3;
     transition: all 1s linear;
   }
 }

@@ -76,9 +76,8 @@
           color: #fff;
           text-shadow: 1px 1px 3px #111;
 
-          .text-row,
-          .sub-text-row {
-            display: block;
+          .text-row {
+            /*animation: scroll 15s linear infinite;*/
           }
         }
       }
@@ -89,6 +88,11 @@
       border-left: 1px solid #222;
     }
   }
+}
+
+@keyframes scroll {
+ 0%   { -webkit-transform: translateY(100%); }
+ 100% { -webkit-transform: translateY(-100%); }
 }
 
 .toolbar .attach-to-sidebar {

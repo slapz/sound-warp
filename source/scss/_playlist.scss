@@ -6,11 +6,16 @@
       color: #fff;
     }
 
-    .now-playing {
-      background: linear-gradient(to bottom, rgba(255,85,0,0.3), rgba(255,85,0,0.5));
+    .table-row {
+      border-radius: 2px;
 
-      .table-column {
-        color: #fff;
+      &.now-playing {
+        background: linear-gradient(to bottom, rgba(255,85,0,0.3), rgba(255,85,0,0.5));
+        box-shadow: 0 0 1px rgba(255,255,255,0.1) inset;
+
+        .table-column {
+          color: #fff;
+        }
       }
     }
   }
@@ -23,13 +28,21 @@
   }
 
   .artwork {
-    height: 67px;
+    width: 60px;
+    height: 60px;
     border-radius: 4px;
     overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    font-size: 50px;
+    box-shadow: 0 0 0 50px rgba(255,255,255,0.2) inset;
+    color: rgba(0,0,0,0.2);
 
     .artwork-img {
-      width: 67px;
-      height: 67px;
+      width: 60px;
+      height: 60px;
     }
   }
 

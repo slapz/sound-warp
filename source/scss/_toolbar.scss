@@ -255,16 +255,22 @@ footer.toolbar {
       -webkit-appearance: none;
       margin: -6px -7px 0px 0px;
       border-radius: 10px;
+      transform: scale(1);
+      opacity: 1;
       transition-property: opacity, transform;
       transition-duration: 0.1s;
       transition-timing-function: linear;
       float: right;
     }
 
-    &.loading {
-      &,
-      .progress-value {
-        background: $brand-info;
+    &[disabled] {
+      .progress-fill {
+        background: transparentize(#777, 0.8);
+      }
+
+      .seek-handle {
+        transform: scale(0);
+        opacity: 0;
       }
     }
   }
@@ -276,10 +282,6 @@ footer.toolbar {
     line-height: $toolbar-height;
     width: 80px;
   }
-
-  .playback-time-current {}
-
-  .playback-time-duration {}
 }
 
 @keyframes marquee {
