@@ -104,7 +104,6 @@
         }
 
         &:disabled {
-          display: none;
           background-color: #333;
           border-color: #333;
 
@@ -240,7 +239,7 @@ footer.toolbar {
       background: #fff;
       cursor: default;
       -webkit-appearance: none;
-      margin: -6px 0 0 0;
+      margin: -6px -7px 0px 0px;
       border-radius: 10px;
       transition-property: opacity, transform;
       transition-duration: 0.1s;
