@@ -4,3 +4,4 @@ dist
 dist/*
 logs
 logs/*
+assets/pkg.sh
