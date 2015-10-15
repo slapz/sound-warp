@@ -8,5 +8,8 @@ module.exports = {
   client: {
     client_id: '',
     redirect_uri: 'connect://soundcloud'
+  },
+  flags: {
+    AUTO_CONNECT: false
   }
 };
