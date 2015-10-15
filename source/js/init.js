@@ -34,3 +34,5 @@ Object.keys(events).forEach(function(key) {
     event.register();
   }
 });
+
+sw.attachMenu();

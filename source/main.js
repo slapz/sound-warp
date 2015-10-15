@@ -47,6 +47,7 @@ app.on('ready', function() {
     'min-width': 1024,
     'height': 800,
     'min-height': 500,
+    'use-content-size': true,
     'title-bar-style': 'hidden'
   });
 

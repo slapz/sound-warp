@@ -10,6 +10,7 @@ module.exports = {
     redirect_uri: 'connect://soundcloud'
   },
   flags: {
+    DEBUG: false,
     AUTO_CONNECT: false
   }
 };
